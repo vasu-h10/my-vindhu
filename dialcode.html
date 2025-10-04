@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vindhu Phone Input</title>
+  <style>
+    .vindhu-phone-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    #vindhuMessage {
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    select,
+    input[type="tel"] {
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="vindhu-phone-group">
+ <select id="vindhuCountry">
+  <option value="ABW">🇦🇼 Aruba (+297)</option>
+  <option value="AFG">🇦🇫 Afghanistan (+93)</option>
+  <option value="AGO">🇦🇴 Angola (+244)</option>
+  <option value="AIA">🇦🇮 Anguilla (+1)</option>
+  <option value="ALB">🇦🇱 Albania (+355)</option>
+  <option value="AND">🇦🇩 Andorra (+376)</option>
+  <option value="ARE">🇦🇪 United Arab Emirates (+971)</option>
+  <option value="ARG">🇦🇷 Argentina (+54)</option>
+  <option value="ARM">🇦🇲 Armenia (+374)</option>
+  <option value="ATG">🇦🇬 Antigua and Barbuda (+1)</option>
+  <option value="AUS">🇦🇺 Australia (+61)</option>
+  <option value="AUT">🇦🇹 Austria (+43)</option>
+  <option value="AZE">🇦🇿 Azerbaijan (+994)</option>
+  <option value="BDI">🇧🇮 Burundi (+257)</option>
+  <option value="BEL">🇧🇪 Belgium (+32)</option>
+  <option value="BEN">🇧🇯 Benin (+229)</option>
+  <option value="BFA">🇧🇫 Burkina Faso (+226)</option>
+  <option value="BGD">🇧🇩 Bangladesh (+880)</option>
+  <option value="BGR">🇧🇬 Bulgaria (+359)</option>
+  <option value="BHR">🇧🇭 Bahrain (+973)</option>
+  <option value="BHS">🇧🇸 Bahamas (+1)</option>
+  <option value="BIH">🇧🇦 Bosnia and Herzegovina (+387)</option>
+  <option value="BLR">🇧🇾 Belarus (+375)</option>
+  <option value="BLZ">🇧🇿 Belize (+501)</option>
+  <option value="BMU">🇧🇲 Bermuda (+1)</option>
+  <option value="BOL">🇧🇴 Bolivia (+591)</option>
+  <option value="BRA">🇧🇷 Brazil (+55)</option>
+  <option value="BRB">🇧🇧 Barbados (+1)</option>
+  <option value="BRN">🇧🇳 Brunei (+673)</option>
+  <option value="BTN">🇧🇹 Bhutan (+975)</option>
+  <option value="BWA">🇧🇼 Botswana (+267)</option>
+  <option value="CAF">🇨🇫 Central African Republic (+236)</option>
+  <option value="CAN">🇨🇦 Canada (+1)</option>
+  <option value="CHE">🇨🇭 Switzerland (+41)</option>
+  <option value="CHL">🇨🇱 Chile (+56)</option>
+  <option value="CHN">🇨🇳 China (+86)</option>
+  <option value="CIV">🇨🇮 Ivory Coast (+225)</option>
+  <option value="CMR">🇨🇲 Cameroon (+237)</option>
+  <option value="COD">🇨🇩 Democratic Republic of the Congo (+243)</option>
+  <option value="COG">🇨🇬 Republic of the Congo (+242)</option>
+  <option value="COL">🇨🇴 Colombia (+57)</option>
+  <option value="COM">🇰🇲 Comoros (+269)</option>
+  <option value="CPV">🇨🇻 Cape Verde (+238)</option>
+  <option value="CRI">🇨🇷 Costa Rica (+506)</option>
+  <option value="CUB">🇨🇺 Cuba (+53)</option>
+  <option value="CUW">🇨🇼 Curaçao (+599)</option>
+  <option value="CYP">🇨🇾 Cyprus (+357)</option>
+  <option value="CZE">🇨🇿 Czech Republic (+420)</option>
+  <option value="DEU">🇩🇪 Germany (+49)</option>
+  <option value="DJI">🇩🇯 Djibouti (+253)</option>
+  <option value="DMA">🇩🇲 Dominica (+1)</option>
+  <option value="DNK">🇩🇰 Denmark (+45)</option>
+  <option value="DOM">🇩🇴 Dominican Republic (+1)</option>
+  <option value="DZA">🇩🇿 Algeria (+213)</option>
+  <option value="ECU">🇪🇨 Ecuador (+593)</option>
+  <option value="EGY">🇪🇬 Egypt (+20)</option>
+  <option value="ERI">🇪🇷 Eritrea (+291)</option>
+  <option value="ESH">🇪🇭 Western Sahara (+212)</option>
+  <option value="ESP">🇪🇸 Spain (+34)</option>
+  <option value="EST">🇪🇪 Estonia (+372)</option>
+  <option value="ETH">🇪🇹 Ethiopia (+251)</option>
+  <option value="FIN">🇫🇮 Finland (+358)</option>
+  <option value="FJI">🇫🇯 Fiji (+679)</option>
+  <option value="FLK">🇫🇰 Falkland Islands (+500)</option>
+  <option value="FRA">🇫🇷 France (+33)</option>
+  <option value="FRO">🇫🇴 Faroe Islands (+298)</option>
+  <option value="FSM">🇫🇲 Micronesia (+691)</option>
+  <option value="GAB">🇬🇦 Gabon (+241)</option>
+  <option value="GBR">🇬🇧 United Kingdom (+44)</option>
+  <option value="GEO">🇬🇪 Georgia (+995)</option>
+  <option value="GGY">🇬🇬 Guernsey (+44)</option>
+  <option value="GHA">🇬🇭 Ghana (+233)</option>
+  <option value="GIB">🇬🇮 Gibraltar (+350)</option>
+  <option value="GIN">🇬🇳 Guinea (+224)</option>
+  <option value="GLP">🇬🇵 Guadeloupe (+590)</option>
+  <option value="GMB">🇬🇲 Gambia (+220)</option>
+  <option value="GNB">🇬🇼 Guinea-Bissau (+245)</option>
+  <option value="GNQ">🇬🇶 Equatorial Guinea (+240)</option>
+  <option value="GRC">🇬🇷 Greece (+30)</option>
+  <option value="GRD">🇬🇩 Grenada (+1)</option>
+  <option value="GRL">🇬🇱 Greenland (+299)</option>
+  <option value="GTM">🇬🇹 Guatemala (+502)</option>
+  <option value="GUF">🇬🇫 French Guiana (+594)</option>
+  <option value="GUM">🇬🇺 Guam (+1)</option>
+  <option value="GUY">🇬🇾 Guyana (+592)</option>
+  <option value="HKG">🇭🇰 Hong Kong (+852)</option>
+  <option value="HND">🇭🇳 Honduras (+504)</option>
+  <option value="HRV">🇭🇷 Croatia (+385)</option>
+  <option value="HTI">🇭🇹 Haiti (+509)</option>
+  <option value="HUN">🇭🇺 Hungary (+36)</option>
+  <option value="IDN">🇮🇩 Indonesia (+62)</option>
+  <option value="IMN">🇮🇲 Isle of Man (+44)</option>
+  <option value="IND">🇮🇳 India (+91)</option>
+  <option value="IOT">🇮🇴 British Indian Ocean Territory (+246)</option>
+  <option value="IRL">🇮🇪 Ireland (+353)</option>
+  <option value="IRN">🇮🇷 Iran (+98)</option>
+  <option value="IRQ">🇮🇶 Iraq (+964)</option>
+  <option value="ISL">🇮🇸 Iceland (+354)</option>
+  <option value="ISR">🇮🇱 Israel (+972)</option>
+  <option value="ITA">🇮🇹 Italy (+39)</option>
+  <option value="JAM">🇯🇲 Jamaica (+1)</option>
+  <option value="JEY">🇯🇪 Jersey (+44)</option>
+  <option value="JOR">🇯🇴 Jordan (+962)</option>
+  <option value="JPN">🇯🇵 Japan (+81)</option>
+  <option value="KAZ">🇰🇿 Kazakhstan (+7)</option>
+  <option value="KEN">🇰🇪 Kenya (+254)</option>
+  <option value="KGZ">🇰🇬 Kyrgyzstan (+996)</option>
+  <option value="KHM">🇰🇭 Cambodia (+855)</option>
+  <option value="KIR">🇰🇮 Kiribati (+686)</option>
+  <option value="KNA">🇰🇳 Saint Kitts and Nevis (+1)</option>
+  <option value="KOR">🇰🇷 South Korea (+82)</option>
+  <option value="KWT">🇰🇼 Kuwait (+965)</option>
+  <option value="LAO">🇱🇦 Laos (+856)</option>
+  <option value="LBN">🇱🇧 Lebanon (+961)</option>
+  <option value="LBR">🇱🇷 Liberia (+231)</option>
+  <option value="LBY">🇱🇾 Libya (+218)</option>
+  <option value="LCA">🇱🇨 Saint Lucia (+1)</option>
+  <option value="LIE">🇱🇮 Liechtenstein (+423)</option>
+  <option value="LKA">🇱🇰 Sri Lanka (+94)</option>
+  <option value="LSO">🇱🇸 Lesotho (+266)</option>
+  <option value="LTU">🇱🇹 Lithuania (+370)</option>
+  <option value="LUX">🇱🇺 Luxembourg (+352)</option>
+  <option value="LVA">🇱🇻 Latvia (+371)</option>
+  <option value="MAC">🇲🇴 Macau (+853)</option>
+  <option value="MAF">🇲🇫 Saint Martin (French) (+590)</option>
+  <option value="MAR">🇲🇦 Morocco (+212)</option>
+  <option value="MCO">🇲🇨 Monaco (+377)</option>
+  <option value="MDA">🇲🇩 Moldova (+373)</option>
+  <option value="MDG">🇲🇬 Madagascar (+261)</option>
+  <option value="MDV">🇲🇻 Maldives (+960)</option>
+  <option value="MEX">🇲🇽 Mexico (+52)</option>
+  <option value="MHL">🇲🇭 Marshall Islands (+692)</option>
+  <option value="MLI">🇲🇱 Mali (+223)</option>
+  <option value="MLT">🇲🇹 Malta (+356)</option>
+  <option value="MMR">🇲🇲 Myanmar (+95)</option>
+  <option value="MNE">🇲🇪 Montenegro (+382)</option>
+  <option value="MNG">🇲🇳 Mongolia (+976)</option>
+  <option value="MNP">🇲🇵 Northern Mariana Islands (+1)</option>
+  <option value="MOZ">🇲🇿 Mozambique (+258)</option>
+  <option value="MRT">🇲🇷 Mauritania (+222)</option>
+  <option value="MSR">🇲🇸 Montserrat (+1)</option>
+  <option value="MTQ">🇲🇶 Martinique (+596)</option>
+  <option value="MUS">🇲🇺 Mauritius (+230)</option>
+  <option value="MWI">🇲🇼 Malawi (+265)</option>
+  <option value="MYS">🇲🇾 Malaysia (+60)</option>
+  <option value="NAM">🇳🇦 Namibia (+264)</option>
+  <option value="NCL">🇳🇨 New Caledonia (+687)</option>
+  <option value="NER">🇳🇪 Niger (+227)</option>
+  <option value="NGA">🇳🇬 Nigeria (+234)</option>
+  <option value="NIC">🇳🇮 Nicaragua (+505)</option>
+  <option value="NIU">🇳🇺 Niue (+683)</option>
+  <option value="NLD">🇳🇱 Netherlands (+31)</option>
+  <option value="NOR">🇳🇴 Norway (+47)</option>
+  <option value="NPL">🇳🇵 Nepal (+977)</option>
+  <option value="NRU">🇳🇷 Nauru (+674)</option>
+  <option value="NZL">🇳🇿 New Zealand (+64)</option>
+  <option value="OMN">🇴🇲 Oman (+968)</option>
+  <option value="PAK">🇵🇰 Pakistan (+92)</option>
+  <option value="PAN">🇵🇦 Panama (+507)</option>
+  <option value="PCN">🇵🇳 Pitcairn Islands (+64)</option>
+  <option value="PER">🇵🇪 Peru (+51)</option>
+  <option value="PHL">🇵🇭 Philippines (+63)</option>
+  <option value="PLW">🇵🇼 Palau (+680)</option>
+  <option value="PNG">🇵🇬 Papua New Guinea (+675)</option>
+  <option value="POL">🇵🇱 Poland (+48)</option>
+  <option value="PRI">🇵🇷 Puerto Rico (+1)</option>
+  <option value="PRK">🇰🇵 North Korea (+850)</option>
+  <option value="PRT">🇵🇹 Portugal (+351)</option>
+  <option value="PRY">🇵🇾 Paraguay (+595)</option>
+  <option value="PSE">🇵🇸 Palestine (+970)</option>
+  <option value="PYF">🇵🇫 French Polynesia (+689)</option>
+  <option value="QAT">🇶🇦 Qatar (+974)</option>
+  <option value="REU">🇷🇪 Réunion (+262)</option>
+  <option value="ROU">🇷🇴 Romania (+40)</option>
+  <option value="RUS">🇷🇺 Russia (+7)</option>
+  <option value="RWA">🇷🇼 Rwanda (+250)</option>
+  <option value="SAU">🇸🇦 Saudi Arabia (+966)</option>
+  <option value="SDN">🇸🇩 Sudan (+249)</option>
+  <option value="SEN">🇸🇳 Senegal (+221)</option>
+  <option value="SGP">🇸🇬 Singapore (+65)</option>
+  <option value="SLB">🇸🇧 Solomon Islands (+677)</option>
+  <option value="SLE">🇸🇱 Sierra Leone (+232)</option>
+  <option value="SLV">🇸🇻 El Salvador (+503)</option>
+  <option value="SMR">🇸🇲 San Marino (+378)</option>
+  <option value="SOM">🇸🇴 Somalia (+252)</option>
+  <option value="SRB">🇷🇸 Serbia (+381)</option>
+  <option value="SSD">🇸🇸 South Sudan (+211)</option>
+  <option value="STP">🇸🇹 São Tomé and Príncipe (+239)</option>
+  <option value="SUR">🇸🇷 Suriname (+597)</option>
+  <option value="SVK">🇸🇰 Slovakia (+421)</option>
+  <option value="SVN">🇸🇮 Slovenia (+386)</option>
+  <option value="SWE">🇸🇪 Sweden (+46)</option>
+  <option value="SWZ">🇸🇿 Eswatini (+268)</option>
+  <option value="SXM">🇸🇽 Sint Maarten (Dutch) (+1)</option>
+  <option value="SYR">🇸🇾 Syria (+963)</option>
+  <option value="TCA">🇹🇨 Turks and Caicos Islands (+1)</option>
+  <option value="TCD">🇹🇩 Chad (+235)</option>
+  <option value="TGO">🇹🇬 Togo (+228)</option>
+  <option value="THA">🇹🇭 Thailand (+66)</option>
+  <option value="TJK">🇹🇯 Tajikistan (+992)</option>
+  <option value="TKL">🇹🇰 Tokelau (+690)</option>
+  <option value="TKM">🇹🇲 Turkmenistan (+993)</option>
+  <option value="TLS">🇹🇱 Timor-Leste (+670)</option>
+  <option value="TON">🇹🇴 Tonga (+676)</option>
+  <option value="TTO">🇹🇹 Trinidad and Tobago (+1)</option>
+  <option value="TUN">🇹🇳 Tunisia (+216)</option>
+  <option value="TUR">🇹🇷 Turkey (+90)</option>
+  <option value="TUV">🇹🇻 Tuvalu (+688)</option>
+  <option value="TWN">🇹🇼 Taiwan (+886)</option>
+  <option value="TZA">🇹🇿 Tanzania (+255)</option>
+  <option value="UGA">🇺🇬 Uganda (+256)</option>
+  <option value="UKR">🇺🇦 Ukraine (+380)</option>
+  <option value="URY">🇺🇾 Uruguay (+598)</option>
+  <option value="USA">🇺🇸 United States (+1)</option>
+  <option value="UZB">🇺🇿 Uzbekistan (+998)</option>
+  <option value="VAT">🇻🇦 Vatican City (+379)</option>
+  <option value="VCT">🇻🇨 Saint Vincent and the Grenadines (+1)</option>
+  <option value="VEN">🇻🇪 Venezuela (+58)</option>
+  <option value="VGB">🇻🇬 British Virgin Islands (+1)</option>
+  <option value="VIR">🇻🇮 U.S. Virgin Islands (+1)</option>
+  <option value="VNM">🇻🇳 Vietnam (+84)</option>
+  <option value="VUT">🇻🇺 Vanuatu (+678)</option>
+  <option value="WSM">🇼🇸 Samoa (+685)</option>
+  <option value="YEM">🇾🇪 Yemen (+967)</option>
+  <option value="ZAF">🇿🇦 South Africa (+27)</option>
+  <option value="ZMB">🇿🇲 Zambia (+260)</option>
+  <option value="ZWE">🇿🇼 Zimbabwe (+263)</option>
+</select>
+
+    <input type="tel" id="vindhuPhone" placeholder="Mobile number" aria-label="Enter mobile number" />
+  </div>
+
+  <p id="vindhuMessage"></p>
+
+  <script>
+    const vindhuRules = {
+  ABW: { code: "+297", length: 7, regex: /^5\d{6}$/ },              // 🇦🇼 Aruba
+  AFG: { code: "+93", length: 9, regex: /^7\d{8}$/ },               // 🇦🇫 Afghanistan
+  AGO: { code: "+244", length: 9, regex: /^9\d{8}$/ },              // 🇦🇴 Angola
+  AIA: { code: "+1", length: 10, regex: /^264\d{7}$/ },             // 🇦🇮 Anguilla
+  ALB: { code: "+355", length: 8, regex: /^6\d{7,8}$/ },            // 🇦🇱 Albania
+  AND: { code: "+376", length: 6, regex: /^[346]\d{5}$/ },          // 🇦🇩 Andorra
+  ARE: { code: "+971", length: 9, regex: /^5\d{8}$/ },              // 🇦🇪 United Arab Emirates
+  ARG: { code: "+54", length: 11, regex: /^9\d{10}$/ },             // 🇦🇷 Argentina
+  ARM: { code: "+374", length: 8, regex: /^9\d{7}$/ },              // 🇦🇲 Armenia
+  ATG: { code: "+1", length: 10, regex: /^268(?:464|7\d{3})\d{4}$/ }, // 🇦🇬 Antigua and Barbuda
+  AUS: { code: "+61", length: 9, regex: /^4\d{8}$/ },               // 🇦🇺 Australia
+  AUT: { code: "+43", length: 8, regex: /^6\d{7,10}$/ },            // 🇦🇹 Austria
+  AZE: { code: "+994", length: 9, regex: /^5\d{7}$/ },              // 🇦🇿 Azerbaijan
+  BDI: { code: "+257", length: 8, regex: /^7[19]\d{6}$/ },          // 🇧🇮 Burundi
+  BEL: { code: "+32", length: 9, regex: /^4\d{8}$/ },               // 🇧🇪 Belgium
+  BEN: { code: "+229", length: 8, regex: /^9\d{7}$/ },              // 🇧🇯 Benin
+  BFA: { code: "+226", length: 8, regex: /^[67]\d{7}$/ },           // 🇧🇫 Burkina Faso
+  BGD: { code: "+880", length: 10, regex: /^1[3-9]\d{8}$/ },        // 🇧🇩 Bangladesh
+  BGR: { code: "+359", length: 9, regex: /^8[7-9]\d{7}$/ },          // 🇧🇬 Bulgaria
+  BHR: { code: "+973", length: 8, regex: /^[3-6]\d{7}$/ },           // 🇧🇭 Bahrain
+  BHS: { code: "+1", length: 10, regex: /^242\d{7}$/ },              // 🇧🇸 Bahamas
+  BIH: { code: "+387", length: 8, regex: /^6\d{7}$/ },               // 🇧🇦 Bosnia and Herzegovina
+  BLR: { code: "+375", length: 9, regex: /^2[4-9]\d{7}$/ },          // 🇧🇾 Belarus
+  BLZ: { code: "+501", length: 7, regex: /^[2-7]\d{6}$/ },           // 🇧🇿 Belize
+  BMU: { code: "+1", length: 10, regex: /^441\d{7}$/ },              // 🇧🇲 Bermuda
+  BOL: { code: "+591", length: 8, regex: /^[67]\d{7}$/ },            // 🇧🇴 Bolivia
+  BRA: { code: "+55", length: 11, regex: /^1[1-9]9\d{8}$/ },         // 🇧🇷 Brazil (DDD + 9-digit mobile)
+  BRB: { code: "+1", length: 10, regex: /^246\d{7}$/ },              // 🇧🇧 Barbados
+  BRN: { code: "+673", length: 7, regex: /^[2-8]\d{6}$/ },           // 🇧🇳 Brunei
+  BTN: { code: "+975", length: 8, regex: /^17\d{6}$/ },              // 🇧🇹 Bhutan
+  BWA: { code: "+267", length: 8, regex: /^7[1-8]\d{6}$/ },          // 🇧🇼 Botswana
+  CAF: { code: "+236", length: 8, regex: /^7\d{7}$/ },               // 🇨🇫 Central African Republic
+  CAN: { code: "+1", length: 10, regex: /^[2-9]\d{9}$/ },            // 🇨🇦 Canada (North American format)
+  CHE: { code: "+41", length: 9, regex: /^7[5-9]\d{7}$/ },           // 🇨🇭 Switzerland
+  CHL: { code: "+56", length: 9, regex: /^9\d{8}$/ },                // 🇨🇱 Chile
+  CHN: { code: "+86", length: 11, regex: /^1[3-9]\d{9}$/ },          // 🇨🇳 China
+  CIV: { code: "+225", length: 10, regex: /^0[1-7]\d{8}$/ },         // 🇨🇮 Ivory Coast
+  CMR: { code: "+237", length: 9, regex: /^6\d{8}$/ },                // 🇨🇲 Cameroon
+  COD: { code: "+243", length: 9, regex: /^8[0-9]\d{7}$/ },           // 🇨🇩 DR Congo (starts with 8X)
+  COG: { code: "+242", length: 9, regex: /^0[5-6]\d{7}$/ },           // 🇨🇬 Republic of Congo (starts with 05–06)
+  COL: { code: "+57", length: 10, regex: /^3\d{9}$/ },                // 🇨🇴 Colombia (starts with 3)
+  COM: { code: "+269", length: 7, regex: /^3[34]\d{5}$/ },            // 🇰🇲 Comoros (starts with 33 or 34)
+  CPV: { code: "+238", length: 7, regex: /^9\d{6}$/ },                // 🇨🇻 Cape Verde (starts with 9)
+  CRI: { code: "+506", length: 8, regex: /^[67]\d{7}$/ },             // 🇨🇷 Costa Rica (starts with 6 or 7)
+  CUB: { code: "+53", length: 8, regex: /^5\d{7}$/ },                 // 🇨🇺 Cuba (starts with 5)
+  CUW: { code: "+599", length: 7, regex: /^9\d{6}$/ },                // 🇨🇼 Curaçao (starts with 9)
+  CYP: { code: "+357", length: 8, regex: /^9\d{7}$/ },                 // 🇨🇾 Cyprus (starts with 9)
+  CZE: { code: "+420", length: 9, regex: /^6\d{8}$/ },               // 🇨🇿 Czech Republic (starts with 6)
+  DEU: { code: "+49", length: 10, regex: /^1[5-7]\d{8}$/ },          // 🇩🇪 Germany (starts with 15–17)
+  DJI: { code: "+253", length: 8, regex: /^77\d{6}$/ },              // 🇩🇯 Djibouti (starts with 77)
+  DMA: { code: "+1", length: 10, regex: /^767\d{7}$/ },              // 🇩🇲 Dominica (area code 767)
+  DNK: { code: "+45", length: 8, regex: /^[2-9]\d{7}$/ },            // 🇩🇰 Denmark (starts with 2–9)
+  DOM: { code: "+1", length: 10, regex: /^809\d{7}$/ },              // 🇩🇴 Dominican Republic (area code 809)
+  DZA: { code: "+213", length: 9, regex: /^5\d{8}$/ },               // 🇩🇿 Algeria (starts with 5)
+  ECU: { code: "+593", length: 9, regex: /^9\d{8}$/ },               // 🇪🇨 Ecuador (starts with 9)
+  EGY: { code: "+20", length: 10, regex: /^1[0-2]\d{8}$/ },          // 🇪🇬 Egypt (starts with 10–12)
+  ERI: { code: "+291", length: 7, regex: /^7\d{6}$/ },               // 🇪🇷 Eritrea (starts with 7)
+  ESH: { code: "+212", length: 9, regex: /^6\d{8}$/ },               // 🇪🇭 Western Sahara (same as Morocco)
+  ESP: { code: "+34", length: 9, regex: /^[6-7]\d{8}$/ },            // 🇪🇸 Spain (starts with 6 or 7)
+  EST: { code: "+372", length: 7, regex: /^5\d{6}$/ },               // 🇪🇪 Estonia (starts with 5)
+  ETH: { code: "+251", length: 9, regex: /^9\d{8}$/ },               // 🇪🇹 Ethiopia (starts with 9)
+  FIN: { code: "+358", length: 9, regex: /^4\d{8}$/ },               // 🇫🇮 Finland (starts with 4)
+  FJI: { code: "+679", length: 7, regex: /^[7-9]\d{6}$/ },           // 🇫🇯 Fiji (starts with 7–9)
+  FLK: { code: "+500", length: 5, regex: /^\d{5}$/ },                // 🇫🇰 Falkland Islands (fixed 5 digits)
+  FRA: { code: "+33", length: 9, regex: /^6\d{8}$/ },                // 🇫🇷 France (starts with 6)
+  FRO: { code: "+298", length: 6, regex: /^[2-9]\d{5}$/ },           // 🇫🇴 Faroe Islands (starts with 2–9)
+  FSM: { code: "+691", length: 7, regex: /^3\d{6}$/ },              // 🇫🇲 Micronesia (starts with 3)
+  GAB: { code: "+241", length: 8, regex: /^0[6-7]\d{6}$/ },          // 🇬🇦 Gabon (starts with 06 or 07)
+  GBR: { code: "+44", length: 10, regex: /^7\d{9}$/ },               // 🇬🇧 UK (starts with 7)
+  GEO: { code: "+995", length: 9, regex: /^5\d{8}$/ },               // 🇬🇪 Georgia (starts with 5)
+  GGY: { code: "+44", length: 10, regex: /^7\d{9}$/ },               // 🇬🇬 Guernsey (same as UK)
+  GHA: { code: "+233", length: 9, regex: /^2[034]\d{7}$/ },          // 🇬🇭 Ghana (starts with 20, 23, 24)
+  GIB: { code: "+350", length: 8, regex: /^5\d{7}$/ },               // 🇬🇮 Gibraltar (starts with 5)
+  GIN: { code: "+224", length: 9, regex: /^6\d{8}$/ },               // 🇬🇳 Guinea (starts with 6)
+  GLP: { code: "+590", length: 9, regex: /^6\d{8}$/ },               // 🇬🇵 Guadeloupe (starts with 6)
+  GMB: { code: "+220", length: 7, regex: /^[2-9]\d{6}$/ },           // 🇬🇲 Gambia (starts with 2–9)
+  GNB: { code: "+245", length: 7, regex: /^9\d{6}$/ },               // 🇬🇼 Guinea-Bissau (starts with 9)
+  GNQ: { code: "+240", length: 9, regex: /^2\d{8}$/ },   // 🇬🇶 Equatorial Guinea (starts with 2)
+  GRC: { code: "+30", length: 10, regex: /^69\d{8}$/ },              // 🇬🇷 Greece (starts with 69)
+  GRD: { code: "+1", length: 10, regex: /^473\d{7}$/ },              // 🇬🇩 Grenada (area code 473)
+  GRL: { code: "+299", length: 6, regex: /^[2-9]\d{5}$/ },           // 🇬🇱 Greenland (6 digits)
+  GTM: { code: "+502", length: 8, regex: /^[3-5]\d{7}$/ },           // 🇬🇹 Guatemala (starts with 3–5)
+  GUF: { code: "+594", length: 9, regex: /^6\d{8}$/ },               // 🇬🇫 French Guiana (starts with 6)
+  GUM: { code: "+1", length: 10, regex: /^671\d{7}$/ },              // 🇬🇺 Guam (area code 671)
+  GUY: { code: "+592", length: 7, regex: /^[6-7]\d{6}$/ },           // 🇬🇾 Guyana (starts with 6 or 7)
+  HKG: { code: "+852", length: 8, regex: /^[5-9]\d{7}$/ },           // 🇭🇰 Hong Kong (starts with 5–9)
+  HND: { code: "+504", length: 8, regex: /^[3-9]\d{7}$/ },           // 🇭🇳 Honduras (starts with 3–9)
+  HRV: { code: "+385", length: 9, regex: /^9\d{8}$/ },               // 🇭🇷 Croatia (starts with 9)
+  HTI: { code: "+509", length: 8, regex: /^3[4-9]\d{6}$/ }, // 🇭🇹 Haiti (starts with 34–39)
+  HUN: { code: "+36", length: 9, regex: /^7\d{8}$/ },               // 🇭🇺 Hungary (starts with 7)
+  IDN: { code: "+62", length: 10, regex: /^8\d{9}$/ },              // 🇮🇩 Indonesia (starts with 8)
+  IMN: { code: "+44", length: 10, regex: /^7\d{9}$/ },              // 🇮🇲 Isle of Man (UK format)
+  IND: { code: "+91", length: 10, regex: /^[6-9]\d{9}$/ },          // 🇮🇳 India (starts with 6–9)
+  IOT: { code: "+246", length: 7, regex: /^\d{7}$/ },               // 🇮🇴 British Indian Ocean Territory
+  IRL: { code: "+353", length: 9, regex: /^8[3-9]\d{7}$/ },         // 🇮🇪 Ireland (starts with 83–89)
+  IRN: { code: "+98", length: 10, regex: /^9\d{9}$/ },              // 🇮🇷 Iran (starts with 9)
+  IRQ: { code: "+964", length: 10, regex: /^7[3-9]\d{8}$/ },        // 🇮🇶 Iraq (starts with 73–79)
+  ISL: { code: "+354", length: 7, regex: /^[6-8]\d{6}$/ },          // 🇮🇸 Iceland (starts with 6–8)
+  ISR: { code: "+972", length: 9, regex: /^5\d{8}$/ },              // 🇮🇱 Israel (starts with 5)
+  ITA: { code: "+39", length: 10, regex: /^3\d{9}$/ },              // 🇮🇹 Italy (starts with 3)
+  JAM: { code: "+1", length: 10, regex: /^876\d{7}$/ },             // 🇯🇲 Jamaica (area code 876)
+  JEY: { code: "+44", length: 10, regex: /^7\d{9}$/ },              // 🇯🇪 Jersey (UK format)
+  JOR: { code: "+962", length: 9, regex: /^7[7-9]\d{7}$/ },         // 🇯🇴 Jordan (starts with 77–79)
+  JPN: { code: "+81", length: 10, regex: /^[789]0\d{8}$/ },         // 🇯🇵 Japan (starts with 70–90)
+  KAZ: { code: "+7", length: 10, regex: /^7[0-9]\d{8}$/ },          // 🇰🇿 Kazakhstan (starts with 7X)
+  KEN: { code: "+254", length: 9, regex: /^7\d{8}$/ },              // 🇰🇪 Kenya (starts with 7)
+  KGZ: { code: "+996", length: 9, regex: /^7\d{8}$/ },              // 🇰🇬 Kyrgyzstan (starts with 7)
+  KHM: { code: "+855", length: 9, regex: /^1\d{8}$/ },              // 🇰🇭 Cambodia (starts with 1)
+  KIR: { code: "+686", length: 5, regex: /^\d{5}$/ },               // 🇰🇮 Kiribati (fixed 5 digits)
+  KNA: { code: "+1", length: 10, regex: /^869\d{7}$/ },          // 🇰🇳 Saint Kitts and Nevis
+  KOR: { code: "+82", length: 9, regex: /^1[0-1]\d{7}$/ },           // 🇰🇷 South Korea (starts with 10–11)
+  KWT: { code: "+965", length: 8, regex: /^[5-9]\d{7}$/ },           // 🇰🇼 Kuwait (starts with 5–9)
+  LAO: { code: "+856", length: 8, regex: /^2[02]\d{6}$/ },           // 🇱🇦 Laos (starts with 20 or 21)
+  LBN: { code: "+961", length: 8, regex: /^7[0-9]\d{6}$/ },          // 🇱🇧 Lebanon (starts with 7X)
+  LBR: { code: "+231", length: 8, regex: /^77\d{6}$/ },              // 🇱🇷 Liberia (starts with 77)
+  LBY: { code: "+218", length: 9, regex: /^9\d{8}$/ },               // 🇱🇾 Libya (starts with 9)
+  LCA: { code: "+1", length: 10, regex: /^758\d{7}$/ },              // 🇱🇨 Saint Lucia (area code 758)
+  LIE: { code: "+423", length: 9, regex: /^7\d{8}$/ },               // 🇱🇮 Liechtenstein (starts with 7)
+  LKA: { code: "+94", length: 9, regex: /^7\d{8}$/ },                // 🇱🇰 Sri Lanka (starts with 7)
+  LSO: { code: "+266", length: 8, regex: /^5[6-8]\d{6}$/ },          // 🇱🇸 Lesotho (starts with 56–58)
+  LTU: { code: "+370", length: 8, regex: /^6\d{7}$/ },               // 🇱🇹 Lithuania (starts with 6)
+  LUX: { code: "+352", length: 9, regex: /^6\d{8}$/ },               // 🇱🇺 Luxembourg (starts with 6)
+  LVA: { code: "+371", length: 8, regex: /^2\d{7}$/ },               // 🇱🇻 Latvia (starts with 2)
+  MAC: { code: "+853", length: 8, regex: /^6\d{7}$/ },               // 🇲🇴 Macau (starts with 6)
+  MAF: { code: "+590", length: 9, regex: /^6\d{8}$/ },               // 🇲🇫 Saint Martin (French) (starts with 6)
+  MAR: { code: "+212", length: 9, regex: /^6\d{8}$/ },               // 🇲🇦 Morocco (starts with 6)
+  MCO: { code: "+377", length: 8, regex: /^6\d{7}$/ },               // 🇲🇨 Monaco (starts with 6)
+  MDA: { code: "+373", length: 8, regex: /^6\d{7}$/ },               // 🇲🇩 Moldova (starts with 6)
+  MDG: { code: "+261", length: 9, regex: /^3[2-9]\d{7}$/ },          // 🇲🇬 Madagascar (starts with 32–39)
+  MDV: { code: "+960", length: 7, regex: /^[1-9]\d{6}$/ },           // 🇲🇻 Maldives (starts with 1–9)
+  MEX: { code: "+52", length: 10, regex: /^1\d{9}$/ },               // 🇲🇽 Mexico (starts with 1)
+  MHL: { code: "+692", length: 7, regex: /^3\d{6}$/ },               // 🇲🇭 Marshall Islands (starts with 3)
+  MLI: { code: "+223", length: 8, regex: /^6\d{7}$/ },      // 🇲🇱 Mali (starts with 6)
+  MLT: { code: "+356", length: 8, regex: /^99\d{6}$/ },              // 🇲🇹 Malta (starts with 99)
+  MMR: { code: "+95", length: 9, regex: /^9\d{8}$/ },                // 🇲🇲 Myanmar (starts with 9)
+  MNE: { code: "+382", length: 8, regex: /^6\d{7}$/ },               // 🇲🇪 Montenegro (starts with 6)
+  MNG: { code: "+976", length: 8, regex: /^8\d{7}$/ },               // 🇲🇳 Mongolia (starts with 8)
+  MNP: { code: "+1", length: 10, regex: /^670\d{7}$/ },              // 🇲🇵 Northern Mariana Islands
+  MOZ: { code: "+258", length: 9, regex: /^8[2-7]\d{7}$/ },          // 🇲🇿 Mozambique (starts with 82–87)
+  MRT: { code: "+222", length: 8, regex: /^2\d{7}$/ },               // 🇲🇷 Mauritania (starts with 2)
+  MSR: { code: "+1", length: 10, regex: /^664\d{7}$/ },              // 🇲🇸 Montserrat
+  MTQ: { code: "+596", length: 9, regex: /^6\d{8}$/ },               // 🇲🇶 Martinique
+  MUS: { code: "+230", length: 8, regex: /^5\d{7}$/ },               // 🇲🇺 Mauritius
+  MWI: { code: "+265", length: 9, regex: /^9\d{8}$/ },               // 🇲🇼 Malawi
+  MYS: { code: "+60", length: 9, regex: /^1[0-9]\d{7}$/ },           // 🇲🇾 Malaysia
+  NAM: { code: "+264", length: 9, regex: /^8[1-5]\d{7}$/ },          // 🇳🇦 Namibia (starts with 81–85)
+  NCL: { code: "+687", length: 6, regex: /^[5-9]\d{5}$/ },           // 🇳🇨 New Caledonia
+  NER: { code: "+227", length: 8, regex: /^9\d{7}$/ },               // 🇳🇪 Niger
+  NGA: { code: "+234", length: 9, regex: /^7[0-9]\d{7}$/ },          // 🇳🇬 Nigeria
+  NIC: { code: "+505", length: 8, regex: /^[5-8]\d{7}$/ },           // 🇳🇮 Nicaragua
+  NIU: { code: "+683", length: 4, regex: /^\d{4}$/ },                // 🇳🇺 Niue (fixed 4 digits)
+  NLD: { code: "+31", length: 9, regex: /^6\d{8}$/ },                // 🇳🇱 Netherlands
+  NOR: { code: "+47", length: 8, regex: /^4\d{7}$/ },                // 🇳🇴 Norway
+  NPL: { code: "+977", length: 10, regex: /^9[78]\d{8}$/ },          // 🇳🇵 Nepal (starts with 97–98)
+  NRU: { code: "+674", length: 7, regex: /^5\d{6}$/ },               // 🇳🇷 Nauru
+  NZL: { code: "+64", length: 9, regex: /^2\d{8}$/ },                // 🇳🇿 New Zealand
+  OMN: { code: "+968", length: 8, regex: /^9\d{7}$/ },       // 🇴🇲 Oman
+  PAK: { code: "+92", length: 10, regex: /^3\d{9}$/ },               // 🇵🇰 Pakistan
+  PAN: { code: "+507", length: 8, regex: /^[6-7]\d{7}$/ },           // 🇵🇦 Panama
+  PCN: { code: "+64", length: 6, regex: /^\d{6}$/ },                 // 🇵🇳 Pitcairn Islands
+  PER: { code: "+51", length: 9, regex: /^9\d{8}$/ },                // 🇵🇪 Peru
+  PHL: { code: "+63", length: 10, regex: /^9\d{9}$/ },               // 🇵🇭 Philippines
+  PLW: { code: "+680", length: 7, regex: /^6\d{6}$/ },               // 🇵🇼 Palau
+  PNG: { code: "+675", length: 7, regex: /^7\d{6}$/ },               // 🇵🇬 Papua New Guinea
+  POL: { code: "+48", length: 9, regex: /^5\d{8}$/ },                // 🇵🇱 Poland
+  PRI: { code: "+1", length: 10, regex: /^787\d{7}$/ },              // 🇵🇷 Puerto Rico
+  PRK: { code: "+850", length: 9, regex: /^1\d{8}$/ },               // 🇰🇵 North Korea
+  PRT: { code: "+351", length: 9, regex: /^9\d{8}$/ },               // 🇵🇹 Portugal
+  PRY: { code: "+595", length: 9, regex: /^9\d{8}$/ },               // 🇵🇾 Paraguay
+  PSE: { code: "+970", length: 9, regex: /^5\d{8}$/ },               // 🇵🇸 Palestine
+  PYF: { code: "+689", length: 6, regex: /^[2-9]\d{5}$/ },           // 🇵🇫 French Polynesia
+  QAT: { code: "+974", length: 8, regex: /^3\d{7}$/ },               // 🇶🇦 Qatar
+  REU: { code: "+262", length: 9, regex: /^6\d{8}$/ },               // 🇷🇪 Réunion
+  ROU: { code: "+40", length: 10, regex: /^7\d{9}$/ },               // 🇷🇴 Romania
+  RUS: { code: "+7", length: 10, regex: /^9\d{9}$/ },                // 🇷🇺 Russia
+  RWA: { code: "+250", length: 9, regex: /^7\d{8}$/ },               // 🇷🇼 Rwanda
+  SAU: { code: "+966", length: 9, regex: /^5\d{8}$/ },               // 🇸🇦 Saudi Arabia
+  SDN: { code: "+249", length: 9, regex: /^9\d{8}$/ },               // 🇸🇩 Sudan
+  SEN: { code: "+221", length: 9, regex: /^7\d{8}$/ },               // 🇸🇳 Senegal
+  SGP: { code: "+65", length: 8, regex: /^[89]\d{7}$/ },             // 🇸🇬 Singapore
+  SLB: { code: "+677", length: 7, regex: /^[7-9]\d{6}$/ },           // 🇸🇧 Solomon Islands
+  SLE: { code: "+232", length: 8, regex: /^7\d{7}$/ },               // 🇸🇱 Sierra Leone
+  SLV: { code: "+503", length: 8, regex: /^[6-7]\d{7}$/ },           // 🇸🇻 El Salvador
+  SMR: { code: "+378", length: 9, regex: /^6\d{8}$/ },               // 🇸🇲 San Marino
+  SOM: { code: "+252", length: 8, regex: /^6\d{7}$/ },               // 🇸🇴 Somalia
+  SRB: { code: "+381", length: 9, regex: /^6\d{8}$/ },               // 🇷🇸 Serbia
+  SSD: { code: "+211", length: 9, regex: /^9\d{8}$/ },               // 🇸🇸 South Sudan
+  STP: { code: "+239", length: 7, regex: /^9\d{6}$/ },       // 🇸🇹 São Tomé and Príncipe
+  SUR: { code: "+597", length: 7, regex: /^[7-9]\d{6}$/ },           // 🇸🇷 Suriname
+  SVK: { code: "+421", length: 9, regex: /^9\d{8}$/ },               // 🇸🇰 Slovakia
+  SVN: { code: "+386", length: 9, regex: /^7\d{8}$/ },               // 🇸🇮 Slovenia
+  SWE: { code: "+46", length: 9, regex: /^7\d{8}$/ },                // 🇸🇪 Sweden
+  SWZ: { code: "+268", length: 8, regex: /^7\d{7}$/ },               // 🇸🇿 Eswatini
+  SXM: { code: "+1", length: 10, regex: /^721\d{7}$/ },              // 🇸🇽 Sint Maarten
+  SYR: { code: "+963", length: 9, regex: /^9\d{8}$/ },               // 🇸🇾 Syria
+  TCA: { code: "+1", length: 10, regex: /^649\d{7}$/ },              // 🇹🇨 Turks and Caicos
+  TCD: { code: "+235", length: 8, regex: /^6\d{7}$/ },               // 🇹🇩 Chad
+  TGO: { code: "+228", length: 8, regex: /^9\d{7}$/ },               // 🇹🇬 Togo
+  THA: { code: "+66", length: 9, regex: /^8\d{8}$/ },                // 🇹🇭 Thailand
+  TJK: { code: "+992", length: 9, regex: /^9\d{8}$/ },               // 🇹🇯 Tajikistan
+  TKL: { code: "+690", length: 4, regex: /^\d{4}$/ },                // 🇹🇰 Tokelau
+  TKM: { code: "+993", length: 8, regex: /^6\d{7}$/ },               // 🇹🇲 Turkmenistan
+  TLS: { code: "+670", length: 7, regex: /^7\d{6}$/ },               // 🇹🇱 Timor-Leste
+  TON: { code: "+676", length: 5, regex: /^\d{5}$/ },                // 🇹🇴 Tonga
+  TTO: { code: "+1", length: 10, regex: /^868\d{7}$/ },              // 🇹🇹 Trinidad and Tobago
+  TUN: { code: "+216", length: 8, regex: /^2\d{7}$/ },               // 🇹🇳 Tunisia
+  TUR: { code: "+90", length: 10, regex: /^5\d{9}$/ },               // 🇹🇷 Turkey
+  TUV: { code: "+688", length: 5, regex: /^\d{5}$/ },                // 🇹🇻 Tuvalu
+  TWN: { code: "+886", length: 9, regex: /^9\d{8}$/ },               // 🇹🇼 Taiwan
+  TZA: { code: "+255", length: 9, regex: /^6\d{8}$/ },               // 🇹🇿 Tanzania
+  UGA: { code: "+256", length: 9, regex: /^7\d{8}$/ },               // 🇺🇬 Uganda
+  UKR: { code: "+380", length: 9, regex: /^9\d{8}$/ },               // 🇺🇦 Ukraine
+  URY: { code: "+598", length: 9, regex: /^9\d{8}$/ },               // 🇺🇾 Uruguay
+  USA: { code: "+1", length: 10, regex: /^[2-9]\d{9}$/ },            // 🇺🇸 United States
+  UZB: { code: "+998", length: 9, regex: /^9\d{8}$/ },               // 🇺🇿 Uzbekistan
+  VAT: { code: "+379", length: 6, regex: /^\d{6}$/ },                // 🇻🇦 Vatican City
+  VCT: { code: "+1", length: 10, regex: /^784\d{7}$/ },   // 🇻🇨 Saint Vincent and the Grenadines
+  VEN: { code: "+58", length: 10, regex: /^4\d{9}$/ },               // 🇻🇪 Venezuela (starts with 4)
+  VGB: { code: "+1", length: 10, regex: /^284\d{7}$/ },              // 🇻🇬 British Virgin Islands
+  VIR: { code: "+1", length: 10, regex: /^340\d{7}$/ },              // 🇻🇮 U.S. Virgin Islands
+  VNM: { code: "+84", length: 9, regex: /^0[3-9]\d{8}$/ },           // 🇻🇳 Vietnam (starts with 03–09)
+  VUT: { code: "+678", length: 7, regex: /^[5-9]\d{6}$/ },           // 🇻🇺 Vanuatu
+  WSM: { code: "+685", length: 7, regex: /^[7-9]\d{6}$/ },           // 🇼🇸 Samoa
+  YEM: { code: "+967", length: 9, regex: /^7\d{8}$/ },               // 🇾🇪 Yemen
+  ZAF: { code: "+27", length: 9, regex: /^6\d{8}$/ },                // 🇿🇦 South Africa
+  ZMB: { code: "+260", length: 9, regex: /^9\d{8}$/ },               // 🇿🇲 Zambia
+  ZWE: { code: "+263", length: 9, regex: /^7\d{8}$/ }                // 🇿🇼 Zimbabwe
+};
+
+
+
+    const vindhuSelect = document.getElementById("vindhuCountry");
+    const vindhuInput = document.getElementById("vindhuPhone");
+    const vindhuMessage = document.getElementById("vindhuMessage");
+
+    // 🎧 Listener 1: Country Change
+    vindhuSelect.addEventListener("change", () => {
+      const iso = vindhuSelect.value;
+      const rule = vindhuRules[iso];
+
+      if (!rule) return;
+
+      vindhuInput.placeholder = `${rule.code} • ${rule.length} digits`;
+      vindhuInput.maxLength = rule.length;
+      vindhuInput.value = "";
+      vindhuMessage.textContent = "";
+      vindhuInput.style.borderColor = "#ccc";
+    });
+
+    // 🎧 Listener 2: Phone Input
+    vindhuInput.addEventListener("input", () => {
+      const iso = vindhuSelect.value;
+      const rule = vindhuRules[iso];
+      if (!rule) return;
+
+      const value = vindhuInput.value.replace(/\D/g, "");
+      if (value.length > rule.length) {
+        vindhuInput.value = value.slice(0, rule.length);
+      }
+
+      const isValid = rule.regex.test(value);
+      vindhuInput.style.borderColor = isValid ? "green" : "red";
+    vindhuMessage.textContent = isValid
+  ? `Valid ${iso} number`
+  : `Invalid ${iso} format (${rule.length} digits)`;
+vindhuMessage.style.fontWeight = "bold";
+vindhuMessage.style.color = isValid ? "green" : "red";
+    });
+
+    // ✅ Initialize on load
+    vindhuSelect.dispatchEvent(new Event("change"));
+  </script>
+</body>
+</html>
