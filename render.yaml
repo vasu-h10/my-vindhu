@@ -2,6 +2,8 @@ services:
   - type: web
     name: vindhu-preview
     env: python
-    buildCommand: ""
-    startCommand: python3 backend/https_server.py
     plan: free
+    rootDirectory: ./
+    buildCommand: pip install -r requirements.txt
+    startCommand: python3 backend/https_server.py
+    autoDeploy: true
