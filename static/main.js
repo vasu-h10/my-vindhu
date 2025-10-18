@@ -1,7 +1,19 @@
-import { saveData, loadData, removeData, clearAllData } from './storage_utils.js';
+import { createHeader } from './header.js';
+import { attachProfileWrapper } from './profile_wrapper.js';
+import { createDonateIcon } from './donationPanel.js';
+import { enableDarkModeToggle } from './main_body.js';
+import { saveData, loadData } from './storage_utils.js';
 
-// Example usage
-const profile = loadData('vendorProfile', { name: '', dishes: [] });
-console.log(profile);
-
-saveData('vendorProfile', { name: 'Vindhu', dishes: ['Dish 1'] });
+document.addEventListener('DOMContentLoaded', () => {
+  const app = document.getElementById('app');
+  
+  // Header
+  const header = createHeader();
+  app.appendChild(header);
+  
+  // Attach profile wrapper (inside header)
+  attachProfileWrapper(header.querySelector('.profile-area'));
+  
+  // Enable dark mode toggle
+  enableDarkModeToggle();
+});

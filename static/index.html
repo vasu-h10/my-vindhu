@@ -1,54 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Vendor Dashboard</title>
-  <style>
-    body { 
-      background: #1e1e1e; 
-      color: #fff; 
-      font-family: Arial, sans-serif; 
-      margin: 0; 
-      padding: 0; 
-    }
-    .vendor-header h2 { 
-      margin: 0; 
-      font-size: 20px; 
-    }
-    .vendor-header p { 
-      margin: 0; 
-      font-size: 13px; 
-      color: #ccc; 
-      display: flex; 
-      align-items: center; 
-      gap: 5px; 
-    }
-    .dish-row::-webkit-scrollbar { 
-      height: 6px; 
-    }
-    .dish-row::-webkit-scrollbar-thumb { 
-      background: #555; 
-      border-radius: 3px; 
-    }
-    input { 
-      padding: 5px; 
-      border-radius: 4px; 
-      border: none; 
-    }
-    button { 
-      cursor: pointer; 
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Vindhu</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <div id="layoutContainer"></div>
-
-  <!-- ES Module Scripts -->
-  <script type="module" src="./js/profile_wrapper.js"></script>
-  <script type="module" src="./js/main_body.js"></script>
-
-  <!-- Optional Mobile Debugger -->
-  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-  <script>eruda.init();</script>
+  <div id="app"></div>
+  <script type="module" src="./main.js"></script>
 </body>
 </html>

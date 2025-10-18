@@ -1,41 +1,41 @@
-// vendor_header.js
-export function createVendorHeader(vendorData) {
-  const header = document.createElement('div');
-  header.className = 'vendor-header';
-  header.style.display = 'flex';
-  header.style.flexDirection = 'column';
-  header.style.gap = '6px';
-  header.style.padding = '10px 0';
+export function createHeader() {
+  const header = document.createElement('header');
+  header.className = 'header';
   
-  header.innerHTML = `
-    <h2>${vendorData.restaurantName || 'Vendor Name'}</h2>
-
-    <p>
-      <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" fill="#ccc" viewBox="0 0 24 24">
-        <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 
-        0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/>
-      </svg>
-      ${vendorData.location || ''}
-    </p>
-
-    <p>
-      <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" fill="#ccc" viewBox="0 0 24 24">
-        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 
-        011.11-.21c1.21.48 2.53.74 3.91.74a1 1 0 
-        011 1v3.5a1 1 0 01-1 1C10.07 22 2 13.93 2 
-        3.5a1 1 0 011-1H6.5a1 1 0 
-        011 1c0 1.38.26 2.7.74 3.91a1 1 0 
-        01-.21 1.11l-2.2 2.2z"/>
-      </svg>
-      ${vendorData.phone || ''}
-    </p>
-
-    <p>
-      <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" fill="#ccc" viewBox="0 0 24 24">
-        <path d="M12 13.065l8-5.065v10h-16v-10l8 5.065zm0-2.13L4 6h16l-8 4.935z"/>
-      </svg>
-      ${vendorData.email || ''}
-    </p>
+  // Profile Area
+  const profileArea = document.createElement('div');
+  profileArea.className = 'profile-area';
+  
+  // Logo + Title
+  const logoSection = document.createElement('div');
+  logoSection.className = 'logo-section';
+  logoSection.innerHTML = `
+    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Logo">
+    <h1>My Vindhu</h1>
   `;
+  
+  // Dark mode button
+  const darkBtn = document.createElement('button');
+  darkBtn.id = 'darkModeBtn';
+  darkBtn.textContent = 'Dark';
+  
+  // Donation icon
+  const donate = document.createElement('div');
+  donate.id = 'donateIcon';
+  donate.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="red" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+      2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 
+      4.5 2.09C13.09 3.81 14.76 3 16.5 3 
+      19.58 3 22 5.42 22 8.5c0 3.78-3.4 
+      6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+  `;
+  
+  header.appendChild(profileArea);
+  header.appendChild(logoSection);
+  header.appendChild(darkBtn);
+  header.appendChild(donate);
+  
   return header;
 }

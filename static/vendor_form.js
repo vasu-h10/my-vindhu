@@ -1,24 +1,26 @@
-import { saveData, loadData } from './storage_utils.js';
+// vendor_form.js — placeholder for vendor registration logic
+import { saveData } from './storage_utils.js';
 
-export function createVendorForm(container, vendorData) {
+export function createVendorForm() {
   const form = document.createElement('form');
+  form.className = 'vendor-form';
   form.innerHTML = `
-    <input type="text" id="vendorName" placeholder="Vendor Name">
-    <input type="text" id="dishName" placeholder="Dish Name">
-    <button type="submit">Add Dish</button>
+    <h2>Vendor Registration</h2>
+    <input type="text" id="vendorName" placeholder="Vendor Name" required />
+    <input type="email" id="vendorEmail" placeholder="Email" required />
+    <button type="submit">Register</button>
   `;
-  container.appendChild(form);
-
+  
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('vendorName').value;
-    const dish = document.getElementById('dishName').value;
-
-    const data = loadData('vendorData', []);
-    data.push({ name, dish });
-    saveData('vendorData', data);
-
-    alert('Dish added!');
-    form.reset();
+    const email = document.getElementById('vendorEmail').value;
+    
+    if (name && email) {
+      saveData('vendorProfile', { name, email });
+      alert(`✅ Vendor ${name} registered successfully!`);
+    }
   });
+  
+  return form;
 }

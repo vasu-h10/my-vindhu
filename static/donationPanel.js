@@ -1,33 +1,14 @@
-// donationPanel.js
-export function attachDonationPanel(donateIcon) {
-  if (!donateIcon) return;
-  const existing = document.querySelector(".donation-panel");
-  if (existing) { existing.remove(); return; }
-  
-  const panel = document.createElement("div");
-  panel.className = "donation-panel";
-  panel.style.position = "absolute";
-  panel.style.width = "220px";
-  panel.style.padding = "12px";
-  panel.style.background = "#fff";
-  panel.style.borderRadius = "12px";
-  panel.style.boxShadow = "0 4px 15px rgba(0,0,0,0.15)";
-  panel.style.zIndex = "2000";
-  
-  const rect = donateIcon.getBoundingClientRect();
-  panel.style.top = `${rect.bottom + window.scrollY}px`;
-  panel.style.left = `${rect.left + window.scrollX}px`;
-  
-  panel.innerHTML = `
-    <h4>Support Us</h4>
-    <p>Thanks for your donation!</p>
-    <button id="donate-btn" style="width:100%; padding:8px; border:none; border-radius:8px; background:#ff3366; color:#fff; cursor:pointer;">Donate</button>
+export function createDonateIcon() {
+  const donateIcon = document.createElement('div');
+  donateIcon.id = 'donateIcon';
+  donateIcon.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="red" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 
+      2 8.5C2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 
+      4.5 2.09C13.09 3.81 14.76 3 16.5 3
+      19.58 3 22 5.42 22 8.5c0 3.78-3.4 
+      6.86-8.55 11.54L12 21.35z"/>
+    </svg>
   `;
-  document.body.appendChild(panel);
-  
-  document.addEventListener("click", (e) => {
-    if (!panel.contains(e.target) && e.target !== donateIcon) panel.remove();
-  }, { once: true });
-  
-  document.getElementById("donate-btn").addEventListener("click", () => alert("Donation clicked"));
+  return donateIcon;
 }
