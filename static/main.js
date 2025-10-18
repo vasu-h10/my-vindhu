@@ -1,6 +1,7 @@
-// main.js
-import { createMainBody } from './main_body.js';
+import { saveData, loadData, removeData, clearAllData } from './storage_utils.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-  createMainBody();
-});
+// Example usage
+const profile = loadData('vendorProfile', { name: '', dishes: [] });
+console.log(profile);
+
+saveData('vendorProfile', { name: 'Vindhu', dishes: ['Dish 1'] });
