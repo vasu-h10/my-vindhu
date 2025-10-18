@@ -1,69 +1,41 @@
-export function createHeader() {
-  const layout = document.getElementById('layoutContainer');
-  if (!layout) return console.error('layoutContainer not found');
-  
-  const header = document.createElement('header');
-  header.className = 'app-header';
+// vendor_header.js
+export function createVendorHeader(vendorData) {
+  const header = document.createElement('div');
+  header.className = 'vendor-header';
   header.style.display = 'flex';
-  header.style.alignItems = 'center';
-  header.style.justifyContent = 'space-between';
-  header.style.padding = '10px 20px';
-  header.style.background = '#f0f0f0';
-  header.style.borderBottom = '1px solid #ccc';
+  header.style.flexDirection = 'column';
+  header.style.gap = '6px';
+  header.style.padding = '10px 0';
   
-  // ===== Profile Icon =====
-  const profileIcon = document.createElement('img');
-  profileIcon.src = 'profile.png';
-  profileIcon.alt = 'Profile';
-  profileIcon.width = 40;
-  profileIcon.height = 40;
-  profileIcon.style.borderRadius = '50%';
-  
-  // ===== Logo + Title =====
-  const logoTitle = document.createElement('div');
-  logoTitle.style.display = 'flex';
-  logoTitle.style.alignItems = 'center';
-  logoTitle.innerHTML = `
-    <img src="logo.png" alt="Logo" width="40" height="40" style="margin-right: 10px;">
-    <h1 style="margin:0; font-size: 1.5rem;">My Vindhu</h1>
+  header.innerHTML = `
+    <h2>${vendorData.restaurantName || 'Vendor Name'}</h2>
+
+    <p>
+      <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" fill="#ccc" viewBox="0 0 24 24">
+        <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 
+        0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/>
+      </svg>
+      ${vendorData.location || ''}
+    </p>
+
+    <p>
+      <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" fill="#ccc" viewBox="0 0 24 24">
+        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 
+        011.11-.21c1.21.48 2.53.74 3.91.74a1 1 0 
+        011 1v3.5a1 1 0 01-1 1C10.07 22 2 13.93 2 
+        3.5a1 1 0 011-1H6.5a1 1 0 
+        011 1c0 1.38.26 2.7.74 3.91a1 1 0 
+        01-.21 1.11l-2.2 2.2z"/>
+      </svg>
+      ${vendorData.phone || ''}
+    </p>
+
+    <p>
+      <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" fill="#ccc" viewBox="0 0 24 24">
+        <path d="M12 13.065l8-5.065v10h-16v-10l8 5.065zm0-2.13L4 6h16l-8 4.935z"/>
+      </svg>
+      ${vendorData.email || ''}
+    </p>
   `;
-  
-  // ===== Theme Toggle =====
-  const themeToggle = document.createElement('button');
-  themeToggle.id = 'themeToggle';
-  themeToggle.textContent = '🌙 / ☀️';
-  themeToggle.style.cursor = 'pointer';
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-  });
-  
-  // ===== Donate Icon =====
-  const donateIcon = document.createElement('div');
-  donateIcon.className = 'donate-icon';
-  donateIcon.style.width = '35px';
-  donateIcon.style.height = '35px';
-  donateIcon.style.cursor = 'pointer';
-  donateIcon.style.transition = 'transform 0.3s';
-  donateIcon.innerHTML = `
-    <svg viewBox="0 0 24 24" fill="red" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
-        2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
-        C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5
-        c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-    </svg>
-  `;
-  donateIcon.addEventListener('mouseenter', () => {
-    donateIcon.style.transform = 'scale(1.3)';
-  });
-  donateIcon.addEventListener('mouseleave', () => {
-    donateIcon.style.transform = 'scale(1)';
-  });
-  
-  // Append in order
-  header.appendChild(profileIcon);
-  header.appendChild(logoTitle);
-  header.appendChild(themeToggle);
-  header.appendChild(donateIcon);
-  
-  layout.prepend(header);
+  return header;
 }
