@@ -1,9 +1,7 @@
 services:
   - type: web
-    name: vindhu-preview
-    env: python
-    plan: free
-    rootDirectory: ./
-    buildCommand: pip install -r requirements.txt
-    startCommand: python3 backend/https_server.py
+    name: my-vindhu
+    env: static
+    buildCommand: echo "no build needed"
+    staticPublishPath: ./static
     autoDeploy: true
