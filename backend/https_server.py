@@ -2,8 +2,8 @@ from flask import Flask, send_from_directory, jsonify
 from backend.api_routes import get_data
 import os
 
-# Flask app pointing to project root for static files
-app = Flask(__name__, static_folder='../')
+# Serve from the static folder inside your project
+app = Flask(__name__, static_folder='../static')
 
 # Serve the main index.html
 @app.route('/')
@@ -21,5 +21,5 @@ def api_data():
     return jsonify(get_data())
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))
+    port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
