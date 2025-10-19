@@ -1,24 +1,26 @@
+/* ================= Body ================= */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background: #f9f9f9;
   color: #333;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Header */
-.header {
+/* ================= Header ================= */
+.header, .app-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: #ffffff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   padding: 8px 16px;
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-.logo-section {
+.logo-section, .app-title {
   text-align: center;
 }
 
@@ -28,22 +30,43 @@ body {
   margin: 0 auto;
 }
 
-.logo-section h1 {
+.logo-section h1, .app-title {
   margin: 4px 0 0 0;
   font-size: 18px;
   color: #333;
 }
 
-/* Profile Icon */
-#profileIcon {
+/* ================= Profile Icon / Wrapper ================= */
+#profileIcon, .profile-wrapper .profile-img {
   width: 38px;
   height: 38px;
   border-radius: 50%;
   cursor: pointer;
 }
 
-/* Dark Mode Button */
-#darkModeBtn {
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-wrapper .logout-btn {
+  padding: 5px 10px;
+  background-color: #ff4d4f;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.profile-wrapper .logout-btn:hover {
+  background-color: #e63946;
+}
+
+/* ================= Dark Mode Button ================= */
+#darkModeBtn, #dark-mode-toggle {
   background: #222;
   color: white;
   border: none;
@@ -51,22 +74,82 @@ body {
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  transition: background-color 0.3s;
 }
 
-/* Donation Icon */
+#darkModeBtn:hover, #dark-mode-toggle:hover {
+  background-color: #444;
+}
+
+/* ================= Donation Icon ================= */
 #donateIcon {
   width: 30px;
   height: 30px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-
 #donateIcon:hover {
   transform: scale(1.2);
 }
 
-/* Dark Mode */
-.dark-mode {
+/* ================= Donation Panel ================= */
+.donation-panel {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 250px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  display: none;
+  z-index: 1000;
+}
+
+.donate-btn {
+  padding: 6px 12px;
+  background-color: #ff7f50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.donate-btn:hover {
+  background-color: #ff6347;
+}
+
+/* ================= Dark Mode ================= */
+.dark-mode, body[data-theme="dark"] {
   background: #121212;
   color: #f2f2f2;
+}
+
+body[data-theme="dark"] .header,
+body[data-theme="dark"] .app-header {
+  background-color: #1f1f1f;
+  color: #f2f2f2;
+}
+
+body[data-theme="dark"] #darkModeBtn,
+body[data-theme="dark"] #dark-mode-toggle {
+  background-color: #333;
+  color: #f2f2f2;
+}
+
+body[data-theme="dark"] .donation-panel {
+  background-color: #1e1e1e;
+  border-color: #333;
+  color: #f2f2f2;
+}
+
+body[data-theme="dark"] .logout-btn {
+  background-color: #e63946;
+}
+
+body[data-theme="dark"] .logout-btn:hover {
+  background-color: #d62828;
 }
