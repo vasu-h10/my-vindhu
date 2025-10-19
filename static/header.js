@@ -1,41 +1,12 @@
+import { APP_STATE } from './state.js';
+
 export function createHeader() {
   const header = document.createElement('header');
-  header.className = 'header';
-  
-  // Profile Area
-  const profileArea = document.createElement('div');
-  profileArea.className = 'profile-area';
-  
-  // Logo + Title
-  const logoSection = document.createElement('div');
-  logoSection.className = 'logo-section';
-  logoSection.innerHTML = `
-    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Logo">
-    <h1>My Vindhu</h1>
+  header.className = 'app-header';
+  header.innerHTML = `
+    <h1 class="app-title">My Vindhu App</h1>
+    <div class="profile-avatar"></div>
+    <button id="dark-mode-toggle">🌙</button>
   `;
-  
-  // Dark mode button
-  const darkBtn = document.createElement('button');
-  darkBtn.id = 'darkModeBtn';
-  darkBtn.textContent = 'Dark';
-  
-  // Donation icon
-  const donate = document.createElement('div');
-  donate.id = 'donateIcon';
-  donate.innerHTML = `
-    <svg viewBox="0 0 24 24" fill="red" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
-      2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 
-      4.5 2.09C13.09 3.81 14.76 3 16.5 3 
-      19.58 3 22 5.42 22 8.5c0 3.78-3.4 
-      6.86-8.55 11.54L12 21.35z"/>
-    </svg>
-  `;
-  
-  header.appendChild(profileArea);
-  header.appendChild(logoSection);
-  header.appendChild(darkBtn);
-  header.appendChild(donate);
-  
   return header;
 }

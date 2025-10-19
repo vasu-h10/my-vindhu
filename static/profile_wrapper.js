@@ -1,29 +1,29 @@
-import { saveData, loadData, removeData } from './storage_utils.js';
+import { APP_STATE } from './state.js';
+import { saveData, loadData } from './js/modules/storage.js';
 
-export function attachProfileWrapper(container) {
-  const profileIcon = document.createElement('img');
-  profileIcon.id = 'profileIcon';
-  profileIcon.src = 'https://cdn-icons-png.flaticon.com/512/149/149071.png';
-  
-  const profileMenu = document.createElement('div');
-  profileMenu.style.display = 'none';
-  profileMenu.innerHTML = `
-    <p><strong>User:</strong> Guest</p>
-    <button id="logoutBtn">Logout</button>
+export function attachProfileWrapper(profileElement) {
+  if (!profileElement) return;
+
+  const wrapper = document.createElement('div');
+  wrapper.className = 'profile-wrapper';
+  wrapper.innerHTML = `
+    <img src="./default-profile.png" class="profile-img" />
+    <button class="logout-btn">Logout</button>
   `;
-  
-  container.appendChild(profileIcon);
-  container.appendChild(profileMenu);
-  
-  profileIcon.addEventListener('click', () => {
-    profileMenu.style.display =
-      profileMenu.style.display === 'none' ? 'block' : 'none';
-  });
-  
-  const logoutBtn = profileMenu.querySelector('#logoutBtn');
+
+  profileElement.appendChild(wrapper);
+
+  // Logout button
+  const logoutBtn = wrapper.querySelector('.logout-btn');
   logoutBtn.addEventListener('click', () => {
-    removeData('vendorProfile');
+    APP_STATE.user = null;
+    saveData('user', null);
     alert('Logged out!');
-    profileMenu.style.display = 'none';
   });
+
+  // Load saved user
+  const savedUser = loadData('user');
+  if (savedUser) {
+    APP_STATE.user = savedUser;
+  }
 }
