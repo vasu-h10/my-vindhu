@@ -1,27 +1,37 @@
-// Import state and constants
-import { APP_STATE } from './state.js';
-import { APP_CONSTANTS } from './constants.js';
+// main.js - single entry point
+import { renderHeader } from "./header.js";
+import { renderFooter } from "./footer.js";
+import { renderMainBody } from "./main_body.js";
+import { loadProfile } from "./profile_wrapper.js";
+import { initStorage } from "./storage.js"; // static storage.js
+import { initTheme } from "./theme.js";
+import { runAnimations } from "./modules/animations.js";
+import { fetchData } from "./modules/api.js";
+import { ensureSingleResizeObserver } from "./utils.js";
 
-// Import modules
-import { createHeader } from './header.js';
-import { attachProfileWrapper } from './profile_wrapper.js';
-import { createDonateIcon } from './donationPanel.js';
-import { enableDarkModeToggle } from './main_body.js';
-import { saveData, loadData } from './storage_utils.js';
-
-document.addEventListener('DOMContentLoaded', () => {
-  const app = document.getElementById('app');
-
-  // Create and attach header
-  const header = createHeader();
-  app.appendChild(header);
-
-  // Attach profile wrapper inside header
-  attachProfileWrapper(header.querySelector('.profile-area'));
-
-  // Enable donation icon toggle
-  createDonateIcon(header);
-
-  // Enable dark mode toggle
-  enableDarkModeToggle();
+// Render header & footer immediately
+document.addEventListener("DOMContentLoaded", async () => {
+  renderHeader();
+  renderFooter();
+  ensureSingleResizeObserver();
+  initTheme();
+  initStorage();
+  runAnimations();
+  
+  try {
+    const data = await fetchData();
+    console.log("Initial API data:", data);
+  } catch (e) {
+    console.warn("Fetch data failed:", e);
+  }
+  
+  const name = localStorage.getItem("profileName");
+  const email = localStorage.getItem("profileEmail");
+  if (name && email) {
+    renderMainBody();
+  } else {
+    loadProfile();
+  }
+  
+  console.log("✅ MyVindhu main.js initialized");
 });

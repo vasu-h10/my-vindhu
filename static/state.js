@@ -1,2 +1,4 @@
-import { APP_STATE } from './state.js';
-import { APP_CONSTANTS } from './constants.js';
+export const appState = {
+  isProfileComplete: !!localStorage.getItem("profileName"),
+  donations: [],
+};

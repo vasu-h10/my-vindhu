@@ -1,2 +1,5 @@
-import { APP_STATE } from './state.js';
-import { APP_CONSTANTS } from './constants.js';
+export const APP_CONSTANTS = {
+  APP_NAME: "MyVindhu",
+  MAX_DONATION: 100000,
+  SUPPORTED_THEMES: ["light", "dark"]
+};

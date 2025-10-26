@@ -1,29 +1,28 @@
-import { APP_STATE } from './state.js';
-import { saveData, loadData } from './js/modules/storage.js';
+import { renderMainBody } from "./main_body.js";
+import { saveToStorage } from "./storage.js";
 
-export function attachProfileWrapper(profileElement) {
-  if (!profileElement) return;
-
-  const wrapper = document.createElement('div');
-  wrapper.className = 'profile-wrapper';
-  wrapper.innerHTML = `
-    <img src="./default-profile.png" class="profile-img" />
-    <button class="logout-btn">Logout</button>
+export function loadProfile() {
+  const main = document.getElementById("app-body");
+  main.innerHTML = `
+    <section class="profile-wrapper">
+      <h2>Complete Registration</h2>
+      <form id="profile-form">
+        <label>Name</label>
+        <input type="text" id="pf-name" required />
+        <label>Email</label>
+        <input type="email" id="pf-email" required />
+        <button type="submit">Complete Registration</button>
+      </form>
+    </section>
   `;
-
-  profileElement.appendChild(wrapper);
-
-  // Logout button
-  const logoutBtn = wrapper.querySelector('.logout-btn');
-  logoutBtn.addEventListener('click', () => {
-    APP_STATE.user = null;
-    saveData('user', null);
-    alert('Logged out!');
+  
+  document.getElementById("profile-form").addEventListener("submit", e => {
+    e.preventDefault();
+    const name = document.getElementById("pf-name").value.trim();
+    const email = document.getElementById("pf-email").value.trim();
+    if (!name || !email) return alert("Please fill all fields");
+    saveToStorage("profileName", name);
+    saveToStorage("profileEmail", email);
+    renderMainBody();
   });
-
-  // Load saved user
-  const savedUser = loadData('user');
-  if (savedUser) {
-    APP_STATE.user = savedUser;
-  }
 }

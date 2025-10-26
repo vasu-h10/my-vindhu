@@ -1,26 +1,13 @@
-// vendor_form.js — placeholder for vendor registration logic
-import { saveData } from './storage_utils.js';
-
-export function createVendorForm() {
-  const form = document.createElement('form');
-  form.className = 'vendor-form';
-  form.innerHTML = `
-    <h2>Vendor Registration</h2>
-    <input type="text" id="vendorName" placeholder="Vendor Name" required />
-    <input type="email" id="vendorEmail" placeholder="Email" required />
-    <button type="submit">Register</button>
+export function showVendorForm() {
+  const main = document.getElementById("app-body");
+  main.innerHTML = `
+    <section class="vendor-form">
+      <h2>Vendor Form</h2>
+      <form id="vendorForm">
+        <input type="text" placeholder="Vendor Name" required />
+        <input type="email" placeholder="Email" required />
+        <button type="submit">Submit</button>
+      </form>
+    </section>
   `;
-  
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('vendorName').value;
-    const email = document.getElementById('vendorEmail').value;
-    
-    if (name && email) {
-      saveData('vendorProfile', { name, email });
-      alert(`✅ Vendor ${name} registered successfully!`);
-    }
-  });
-  
-  return form;
 }
