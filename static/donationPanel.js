@@ -1,49 +1,33 @@
 // donationPanel.js
 export function showDonationPanel() {
   const main = document.getElementById("app-body");
-  const existing = document.getElementById("donation-panel");
-  if (existing) {
-    existing.remove();
-    return;
-  }
-  
-  const panel = document.createElement("section");
-  panel.id = "donation-panel";
-  panel.innerHTML = `
-    <div class="donation-content">
-      <h2>Support MyVindhu 🌿</h2>
+  main.innerHTML = `
+    <section class="donation-content">
+      <h2>Support My Vindhu 💖</h2>
+      <p>Your small contribution helps us grow and reach more people.</p>
       <form id="donation-form">
-        <label>Amount</label>
-        <input type="number" id="donationAmount" placeholder="₹100" min="1" required />
-        <button type="submit">Donate</button>
+        <label for="donation-amount">Enter Amount (₹)</label>
+        <input type="number" id="donation-amount" min="10" step="10" required />
+
+        <button type="submit" class="donate-btn">Donate Now</button>
+        <button type="button" id="close-donation" class="close-btn">Cancel</button>
       </form>
-      <button id="closeDonation">Close</button>
-    </div>
+    </section>
   `;
-  
-  main.appendChild(panel);
-  
-  // Close button
-  document.getElementById("closeDonation").addEventListener("click", () => panel.remove());
-  
-  // Donation form submission
+
+  // Handle donation form submission
   document.getElementById("donation-form").addEventListener("submit", (e) => {
     e.preventDefault();
-    const amount = parseInt(document.getElementById("donationAmount").value, 10);
-    if (!amount || amount <= 0) {
-      alert("Please enter a valid donation amount");
+    const amount = document.getElementById("donation-amount").value.trim();
+    if (!amount || amount < 10) {
+      alert("Please enter a valid amount (min ₹10).");
       return;
     }
-    
-    // Here you can integrate with backend API later
-    alert(`Thank you for donating ₹${amount}! 🌿`);
-    
-    // Optionally save donation locally
-    let donations = JSON.parse(localStorage.getItem("donations") || "[]");
-    donations.push({ amount, date: new Date().toISOString() });
-    localStorage.setItem("donations", JSON.stringify(donations));
-    
-    // Close panel
-    panel.remove();
+    alert(`Thank you for donating ₹${amount}! ❤️`);
+  });
+
+  // Close the donation panel
+  document.getElementById("close-donation").addEventListener("click", () => {
+    main.innerHTML = `<p style="text-align:center;">Donation cancelled. 🙏</p>`;
   });
 }

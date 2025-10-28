@@ -1,30 +1,34 @@
-// main.js - single entry point
+// main.js – single entry point for MyVindhu
 import { renderHeader } from "./header.js";
 import { renderFooter } from "./footer.js";
 import { renderMainBody } from "./main_body.js";
 import { loadProfile } from "./profile_wrapper.js";
-import { initStorage } from "./storage.js"; // static storage.js
+import { showDonationPanel } from "./donationPanel.js";
+import { initStorage } from "./storage.js";
 import { initTheme } from "./theme.js";
 import { runAnimations } from "./modules/animations.js";
 import { fetchData } from "./modules/api.js";
 import { ensureSingleResizeObserver } from "./utils.js";
 
-// Render header & footer immediately
+// ✅ DOM Ready Entry
 document.addEventListener("DOMContentLoaded", async () => {
+  // Initial UI setup
   renderHeader();
   renderFooter();
   ensureSingleResizeObserver();
   initTheme();
   initStorage();
   runAnimations();
-  
+
+  // Try to fetch remote data (optional)
   try {
     const data = await fetchData();
     console.log("Initial API data:", data);
   } catch (e) {
     console.warn("Fetch data failed:", e);
   }
-  
+
+  // Check for stored profile info
   const name = localStorage.getItem("profileName");
   const email = localStorage.getItem("profileEmail");
   if (name && email) {
@@ -32,6 +36,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   } else {
     loadProfile();
   }
-  
-  console.log("✅ MyVindhu main.js initialized");
+
+  // Attach header interactions
+  document
+    .querySelector(".profile-btn")
+    ?.addEventListener("click", loadProfile);
+
+  document
+    .querySelector(".donate-anim")
+    ?.addEventListener("click", showDonationPanel);
+
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", initTheme);
+  }
+
+  console.log("✅ MyVindhu main.js fully initialized");
 });
