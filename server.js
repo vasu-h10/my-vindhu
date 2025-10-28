@@ -3,18 +3,20 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const app = express();
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const PORT = process.env.PORT || 10000;
+const HOST = process.env.HOST || "0.0.0.0";
 
-// Serve static files from /static
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// ✅ Serve the "static" folder
 app.use(express.static(path.join(__dirname, "static")));
 
-// Send index.html for any route
+// ✅ Serve index.html for all unknown routes (like /)
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "static", "index.html"));
 });
 
-// Render uses process.env.PORT and host 0.0.0.0
-const PORT = process.env.PORT || 10000;
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`✅ Server running at http://0.0.0.0:${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`🚀 Server running on http://${HOST}:${PORT}`);
 });
