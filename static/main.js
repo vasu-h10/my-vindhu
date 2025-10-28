@@ -1,4 +1,5 @@
 // main.js – single entry point for MyVindhu
+
 import { renderHeader } from "./header.js";
 import { renderFooter } from "./footer.js";
 import { renderMainBody } from "./main_body.js";
