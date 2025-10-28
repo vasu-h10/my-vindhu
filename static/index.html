@@ -8,16 +8,42 @@
 </head>
 <body data-theme="light">
 
-  <!-- 🧩 Layout Container -->
-  <div id="layoutContainer">
-    <!-- The header, main body, and footer will be dynamically injected -->
-  </div>
+  <!-- 📦 Root Layout Container -->
+  <div id="layoutContainer"></div>
+
+  <!-- 🌓 Theme Toggle Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.createElement("button");
+      toggle.id = "theme-toggle";
+      toggle.textContent = "🌗";
+      toggle.title = "Toggle Dark/Light";
+      toggle.style.position = "fixed";
+      toggle.style.bottom = "15px";
+      toggle.style.right = "15px";
+      toggle.style.zIndex = "1000";
+      toggle.style.border = "none";
+      toggle.style.background = "#fff";
+      toggle.style.borderRadius = "50%";
+      toggle.style.fontSize = "20px";
+      toggle.style.cursor = "pointer";
+      toggle.style.boxShadow = "0 2px 5px rgba(0,0,0,0.3)";
+      document.body.appendChild(toggle);
+
+      toggle.addEventListener("click", () => {
+        const body = document.body;
+        const current = body.getAttribute("data-theme");
+        body.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+      });
+    });
+  </script>
 
   <!-- 🧰 Eruda Console for Debugging -->
   <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
   <script>eruda.init();</script>
 
-  <!-- 🚀 Main JS Entry (ES Module) -->
-  <script type="module" src="/static/main.js"></script>
+  <!-- 🚀 ES Modules -->
+  <script type="module" src="/static/header.js"></script>
+  <script type="module" src="/main.js"></script>
 </body>
 </html>
