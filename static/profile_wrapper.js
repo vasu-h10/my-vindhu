@@ -89,3 +89,6 @@ export function loadProfile() {
     renderMainBody();
   });
 }
+
+// Enable global access from header button
+window.loadProfile = loadProfile;

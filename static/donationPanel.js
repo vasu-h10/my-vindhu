@@ -31,3 +31,6 @@ export function showDonationPanel() {
     main.innerHTML = `<p style="text-align:center;">Donation cancelled. 🙏</p>`;
   });
 }
+
+// Enable global access from header button
+window.showDonationPanel = showDonationPanel;
