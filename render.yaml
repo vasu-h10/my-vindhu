@@ -5,3 +5,10 @@ services:
     buildCommand: echo "no build needed"
     staticPublishPath: ./static
     autoDeploy: true
+    headers:
+      - path: /modules/*
+        name: Content-Type
+        value: application/javascript
+      - path: /*
+        name: Cache-Control
+        value: no-cache
