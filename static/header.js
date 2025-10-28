@@ -1,6 +1,7 @@
 // header.js — fully dynamic interactive header
 import { loadProfile, attachProfileWrapper } from "./profile_wrapper.js";
 import { showDonationPanel, attachDonationPanel } from "./donationPanel.js";
+import { createDonationIcon } from "./modules/donationIcon.js";
 
 export function renderHeader() {
   const layout = document.getElementById("layoutContainer") || document.body;
@@ -22,18 +23,17 @@ export function renderHeader() {
   profileContainer.style.height = "50px";
   profileContainer.style.cursor = "pointer";
   profileContainer.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="50" height="50">
-      <circle cx="100" cy="100" r="95" fill="none" stroke="green" stroke-width="2"/>
-      <circle cx="100" cy="50" r="30" fill="green" />
-      <path d="M30 160 L45 115 100 80 155 115 170 160 Z" fill="green" />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="95" fill="none" stroke="#008000" stroke-width="5"/>
+      <circle cx="100" cy="60" r="35" fill="#008000"/>
+      <path d="M40 160 Q100 120 160 160 Z" fill="#006400"/>
     </svg>
   `;
-
   profileContainer.addEventListener("click", (e) => {
     e.stopPropagation();
     if (typeof attachProfileWrapper === "function") {
       attachProfileWrapper(profileContainer);
-      const profileForm = document.querySelector(".profile-form-wrapper");
+      const profileForm = document.querySelector(".profile-form");
       if (profileForm) {
         profileForm.style.display =
           profileForm.style.display === "none" || !profileForm.style.display
@@ -52,11 +52,10 @@ export function renderHeader() {
   logoContainer.style.flexDirection = "column";
   logoContainer.style.alignItems = "center";
   logoContainer.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -10 202 212" width="60" height="60">
-      <path d="M35 95 L41 104 50 110 60 115 105 120 145 115 165 105 170 95 165 130 130 150 75 150 40 130 35 95" fill="orange" stroke="red" stroke-width="1"/>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="100" height="40">
+      <path d="M20 50 Q60 10 100 50 T180 50" fill="none" stroke="#008000" stroke-width="4" />
     </svg>
   `;
-
   const title = document.createElement("h1");
   title.textContent = "MY VINDHU";
   title.className = "header-title";
@@ -77,79 +76,43 @@ export function renderHeader() {
   themeToggle.style.justifyContent = "center";
   themeToggle.style.transition = "transform 0.3s";
   themeToggle.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-      <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 1012 21a9 9 0 009-8.21z"/>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+      <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 1012 21a9 9 0 009-8.21z" fill="#ffcc00"/>
     </svg>
   `;
   themeToggle.addEventListener("click", () =>
     document.body.classList.toggle("dark-theme")
   );
-  themeToggle.addEventListener("mouseenter", () => (themeToggle.style.transform = "scale(1.2)"));
+  themeToggle.addEventListener("mouseenter", () => (themeToggle.style.transform = "scale(1.1)"));
   themeToggle.addEventListener("mouseleave", () => (themeToggle.style.transform = "scale(1)"));
 
-  // ===== 4️⃣ Donation Coin Icon =====
-  const coinContainer = document.createElement("div");
-  coinContainer.className = "coin-hand-container";
-  coinContainer.style.width = "70px";
-  coinContainer.style.height = "70px";
-  coinContainer.style.position = "relative";
-  coinContainer.style.cursor = "pointer";
-
-  coinContainer.innerHTML = `
-    <div class="zoom-container" style="position:relative; transform-origin:center;">
-      <svg class="hand-svg" viewBox="0 0 202 202" width="70" height="70" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 70 95 L 70 90 80 90 80 115 70 115 70 95" fill="skyblue" stroke="#888" stroke-width="2"/>
-      </svg>
-      <div class="coin-container" style="position:absolute; top:15%; left:55%; transform:translate(-50%, -50%); width:28px; height:28px; perspective:800px;">
-        <div class="coin" style="width:100%; height:100%; position:absolute; transform-style:preserve-3d; animation:flipY 1.2s infinite linear;">
-          <div class="coin-face front" style="position:absolute; width:100%; height:100%; border-radius:50%; background:radial-gradient(circle at 30% 30%, #F4C542 0%, #D4A017 60%, #8B5E00 100%); border:2px solid #B8860B; display:flex; align-items:center; justify-content:center; backface-visibility:hidden; font-size:16px; font-weight:bold; color:white;">₹</div>
-          <div class="coin-face back" style="position:absolute; width:100%; height:100%; border-radius:50%; background:radial-gradient(circle at 70% 70%, #F4C542 0%, #D4A017 60%, #8B5E00 100%); border:2px solid #B8860B; display:flex; align-items:center; justify-content:center; backface-visibility:hidden; transform:rotateY(180deg); font-size:16px; font-weight:bold; color:white;">$</div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  let donationOpen = false;
-  coinContainer.addEventListener("click", (e) => {
+  // ===== 4️⃣ Donation Animated Icon =====
+  const donationIcon = createDonationIcon();
+  donationIcon.addEventListener("click", (e) => {
     e.stopPropagation();
     const existingPanel = document.querySelector(".donation-panel");
-    if (donationOpen && existingPanel) {
+    if (existingPanel) {
       existingPanel.remove();
-      donationOpen = false;
     } else if (typeof attachDonationPanel === "function") {
-      attachDonationPanel(coinContainer);
-      donationOpen = true;
+      attachDonationPanel(donationIcon);
     } else if (typeof showDonationPanel === "function") {
       showDonationPanel();
-      donationOpen = true;
     }
   });
 
-  // ===== Append everything =====
+  // ===== Append All =====
   header.appendChild(profileContainer);
   header.appendChild(logoContainer);
   header.appendChild(themeToggle);
-  header.appendChild(coinContainer);
+  header.appendChild(donationIcon);
   layout.prepend(header);
 
-  // ===== Keyframes for coin =====
-  const style = document.createElement("style");
-  style.innerHTML = `
-    @keyframes flipY {
-      0% { transform: rotateY(0deg); }
-      100% { transform: rotateY(360deg); }
-    }
-  `;
-  document.head.appendChild(style);
-
-  // ===== Close panels on outside click =====
+  // ===== Global Click (close panels) =====
   document.addEventListener("click", () => {
-    const profileForm = document.querySelector(".profile-form-wrapper");
+    const profileForm = document.querySelector(".profile-form");
     if (profileForm) profileForm.style.display = "none";
 
     const donationPanel = document.querySelector(".donation-panel");
     if (donationPanel) donationPanel.remove();
-
-    donationOpen = false;
   });
 }
