@@ -8,52 +8,16 @@
 </head>
 <body data-theme="light">
 
-  <!-- 🧭 Header -->
-  <header>
-    <div class="header-container">
-      <!-- 1️⃣ Profile Icon -->
-      <button class="profile-btn" title="Profile">
-        <img src="/icons/profile.svg" alt="Profile" height="28" />
-      </button>
-
-      <!-- 2️⃣ Logo + Title -->
-      <div class="app-logo">
-        <img src="/icons/logo.svg" alt="My Vindhu Logo" height="28" />
-        <span class="app-title">My Vindhu</span>
-      </div>
-
-      <!-- 3️⃣ Theme Toggle + 4️⃣ Donation -->
-      <div class="header-actions">
-        <button id="theme-toggle" title="Toggle Dark/Light">🌗</button>
-        <button class="donate-anim" title="Donate ❤️">
-          <svg class="heart-icon" width="24" height="24" viewBox="0 0 24 24">
-            <path d="M12 21s-8-6-8-11.5S7-1 12 5c5-6 8.5-1.5 8 4.5S12 21 12 21z"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- 🧩 Main Body -->
-  <main id="app-body"></main>
-
-  <!-- ⚓ Footer -->
-  <footer id="app-footer"></footer>
-
-  <!-- 🪄 Theme Toggle Script -->
-  <script>
-    document.getElementById('theme-toggle').addEventListener('click', () => {
-      const body = document.body;
-      const current = body.getAttribute('data-theme');
-      body.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
-    });
-  </script>
+  <!-- 🧩 Layout Container -->
+  <div id="layoutContainer">
+    <!-- The header, main body, and footer will be dynamically injected -->
+  </div>
 
   <!-- 🧰 Eruda Console for Debugging -->
   <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
   <script>eruda.init();</script>
 
-  <!-- 🚀 Main JS Entry -->
-  <script type="module" src="/main.js"></script>
+  <!-- 🚀 Main JS Entry (ES Module) -->
+  <script type="module" src="/static/main.js"></script>
 </body>
 </html>
