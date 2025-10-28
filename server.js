@@ -12,11 +12,12 @@ const __dirname = path.dirname(__filename);
 // ✅ Serve the "static" folder
 app.use(express.static(path.join(__dirname, "static")));
 
-// ✅ Serve index.html for all unknown routes (like /)
+// ✅ Serve index.html for all routes (Render & SPA support)
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "static", "index.html"));
 });
 
+// ✅ Start server
 app.listen(PORT, HOST, () => {
   console.log(`🚀 Server running on http://${HOST}:${PORT}`);
 });
