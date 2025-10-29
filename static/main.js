@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     themeToggle.addEventListener("click", initTheme);
   }
 
-  // ✅ Debug message to confirm load
+  // ✅ Add this test line here:
   const layout = document.getElementById("layoutContainer");
   if (layout) layout.textContent = "✅ JS loaded successfully!";
 
