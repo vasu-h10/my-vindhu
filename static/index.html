@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Vindhu App</title>
 
-  <!-- ✅ Correct absolute path for static CSS -->
-  <link rel="stylesheet" href="/static/style.css" />
+  <!-- ✅ Correct path for CSS (no /static) -->
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body data-theme="light">
   <!-- App root container -->
   <div id="layoutContainer"></div>
 
-  <!-- ✅ Correct absolute path for main JS module -->
-  <script type="module" src="/static/main.js"></script>
+  <!-- ✅ Correct path for JS (no /static) -->
+  <script type="module" src="./main.js"></script>
 
-  <!-- 🧰 Optional: Eruda mobile console for debugging -->
+  <!-- Optional: Eruda mobile console for debugging -->
   <script>
     (function () {
       const script = document.createElement("script");
