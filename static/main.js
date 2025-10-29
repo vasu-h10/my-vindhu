@@ -1,18 +1,20 @@
 // main.js – single entry point for MyVindhu
 
-import { renderHeader } from "./header.js";
-import { renderFooter } from "./footer.js";
-import { renderMainBody } from "./main_body.js";
-import { loadProfile } from "./profile_wrapper.js";
-import { showDonationPanel } from "./donationPanel.js";
-import { initStorage } from "./storage.js";
-import { initTheme } from "./theme.js";
+import { renderHeader } from "./modules/header.js";
+import { renderFooter } from "./modules/footer.js";
+import { renderMainBody } from "./modules/main_body.js";
+import { loadProfile } from "./modules/profile_wrapper.js";
+import { showDonationPanel } from "./modules/donationPanel.js";
+import { initStorage } from "./modules/storage.js";
+import { initTheme } from "./modules/theme.js";
 import { runAnimations } from "./modules/animations.js";
 import { fetchData } from "./modules/api.js";
-import { ensureSingleResizeObserver } from "./utils.js";
+import { ensureSingleResizeObserver } from "./modules/utils.js";
 
 // ✅ DOM Ready Entry
 document.addEventListener("DOMContentLoaded", async () => {
+  console.log("✅ DOM fully loaded, initializing MyVindhu...");
+
   // Initial UI setup
   renderHeader();
   renderFooter();
@@ -26,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const data = await fetchData();
     console.log("Initial API data:", data);
   } catch (e) {
-    console.warn("Fetch data failed:", e);
+    console.warn("⚠️ Fetch data failed:", e);
   }
 
   // Check for stored profile info
@@ -39,20 +41,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // Attach header interactions
-  document
-    .querySelector(".profile-btn")
-    ?.addEventListener("click", loadProfile);
-
-  document
-    .querySelector(".donate-anim")
-    ?.addEventListener("click", showDonationPanel);
+  document.querySelector(".profile-btn")?.addEventListener("click", loadProfile);
+  document.querySelector(".donate-anim")?.addEventListener("click", showDonationPanel);
 
   const themeToggle = document.getElementById("theme-toggle");
   if (themeToggle) {
     themeToggle.addEventListener("click", initTheme);
   }
 
-  // ✅ Add this test line here:
+  // ✅ Add visible confirmation
   const layout = document.getElementById("layoutContainer");
   if (layout) layout.textContent = "✅ JS loaded successfully!";
 
