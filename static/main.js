@@ -52,9 +52,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     themeToggle.addEventListener("click", initTheme);
   }
 
-  // ✅ Add this test line here:
-  document.getElementById("layoutContainer").textContent =
-    "✅ JS loaded successfully!";
+  // ✅ Debug message to confirm load
+  const layout = document.getElementById("layoutContainer");
+  if (layout) layout.textContent = "✅ JS loaded successfully!";
 
   console.log("✅ MyVindhu main.js fully initialized");
 });
