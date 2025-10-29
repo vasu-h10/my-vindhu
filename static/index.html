@@ -4,14 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Vindhu App</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- ✅ Relative path ensures CSS loads from same folder -->
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body data-theme="light">
   <!-- App root container -->
   <div id="layoutContainer"></div>
 
-  <!-- Single ES module entry -->
-  <script type="module" src="main.js"></script>
+  <!-- ✅ Correct relative path for JS -->
+  <script type="module" src="./main.js"></script>
 
   <!-- Optional: Eruda mobile console for debugging -->
   <script>
