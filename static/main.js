@@ -1,3 +1,8 @@
+
+console.log("✅ main.js running from:", window.location.href);
+console.log("✅ Current base:", document.baseURI);
+
+
 // main.js – single entry point for MyVindhu
 
 import { renderHeader } from "./modules/header.js";
