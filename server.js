@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 const staticPath = path.join(__dirname, "static");
 
 // ✅ Serve static files *before* catch-all
-app.use(express.static(staticPath));
+app.use("/static", express.static(staticPath));
 
 // ✅ Serve index.html only for unknown routes (not files with .js, .css, etc.)
 app.get("*", (req, res, next) => {
