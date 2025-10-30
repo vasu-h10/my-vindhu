@@ -1,20 +1,12 @@
 services:
-  - type: static
+  - type: web
     name: my-vindhu
-    env: static
-    buildCommand: echo "no build needed"
-    staticPublishPath: static
-    autoDeploy: true
-
-    headers:
-      - path: /modules/*
-        name: Content-Type
-        value: application/javascript     # ✅ ensures ES modules load correctly
-      - path: /*
-        name: Cache-Control
-        value: no-cache                    # avoids stale files
-
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html           # ✅ SPA-style fallback (optional but fine)
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn backend.https_server:app
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: HOST
+        value: 0.0.0.0
