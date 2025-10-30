@@ -1,2 +1,2 @@
-def greet(name):
-    return f"Hello, {name}!"
+def load_data():
+    return {"status": "success", "info": "Backend connected successfully"}

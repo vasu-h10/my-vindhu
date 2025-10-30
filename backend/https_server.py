@@ -1,31 +1,20 @@
-from flask import Flask, send_from_directory, jsonify
-from backend.api_routes import get_data
+from flask import Flask, send_from_directory
+from backend.api_routes import api
 import os
 
-# Configure Flask to serve from 'static' folder
-app = Flask(__name__, static_folder='../static')
+app = Flask(__name__, static_folder="../static")
 
-# Serve the main index.html file
-@app.route('/')
+# Register API routes
+app.register_blueprint(api)
+
+@app.route("/")
 def index():
-    return send_from_directory(app.static_folder, 'index.html')
+    return send_from_directory(app.static_folder, "index.html")
 
-# Serve static files (CSS, JS, images, modules)
-@app.route('/<path:filename>')
-def serve_static(filename):
-    return send_from_directory(app.static_folder, filename)
-
-# Serve files from the 'modules' subfolder explicitly
-@app.route('/modules/<path:filename>')
-def serve_modules(filename):
-    modules_path = os.path.join(app.static_folder, 'modules')
-    return send_from_directory(modules_path, filename)
-
-# Example API route (for testing)
-@app.route('/api/data')
-def api_data():
-    return jsonify(get_data())
+@app.route("/static/<path:path>")
+def serve_static(path):
+    return send_from_directory(app.static_folder, path)
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
