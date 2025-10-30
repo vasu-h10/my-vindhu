@@ -1,0 +1,3 @@
+runtime: python
+buildCommand: pip install -r requirements.txt
+startCommand: gunicorn backend.https_server:app
