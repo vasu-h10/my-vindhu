@@ -1,7 +1,6 @@
 // header.js — fully dynamic interactive header
 import { loadProfile, attachProfileWrapper } from "/static/profile_wrapper.js";
 import { showDonationPanel, attachDonationPanel } from "/static/donationPanel.js";
-import { createDonationIcon } from "/static/modules/donationIcon.js";
 
 export function renderHeader() {
   const layout = document.getElementById("layoutContainer") || document.body;
@@ -87,14 +86,11 @@ export function renderHeader() {
   themeToggle.addEventListener("mouseleave", () => (themeToggle.style.transform = "scale(1)"));
 
   // ===== 4️⃣ Donation Animated Icon =====
-  const donationIcon = createDonationIcon();
-  donationIcon.addEventListener("click", (e) => {
     e.stopPropagation();
     const existingPanel = document.querySelector(".donation-panel");
     if (existingPanel) {
       existingPanel.remove();
     } else if (typeof attachDonationPanel === "function") {
-      attachDonationPanel(donationIcon);
     } else if (typeof showDonationPanel === "function") {
       showDonationPanel();
     }
@@ -104,7 +100,6 @@ export function renderHeader() {
   header.appendChild(profileContainer);
   header.appendChild(logoContainer);
   header.appendChild(themeToggle);
-  header.appendChild(donationIcon);
   layout.prepend(header);
 
   // ===== Global Click (close panels) =====
