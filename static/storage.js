@@ -5,3 +5,4 @@ export function saveData(key, value) {
 export function loadData(key) {
   return JSON.parse(localStorage.getItem(key));
 }
+console.log('✅ Loaded: storage.js');

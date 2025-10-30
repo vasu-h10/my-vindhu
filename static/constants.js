@@ -3,3 +3,4 @@ export const APP_CONSTANTS = {
   MAX_DONATION: 100000,
   SUPPORTED_THEMES: ["light", "dark"]
 };
+console.log('✅ Loaded: constants.js');

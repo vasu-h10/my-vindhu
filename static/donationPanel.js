@@ -34,3 +34,4 @@ export function showDonationPanel() {
 
 // Enable global access from header button
 window.showDonationPanel = showDonationPanel;
+console.log('✅ Loaded: donationPanel.js');

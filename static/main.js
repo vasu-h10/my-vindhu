@@ -60,3 +60,4 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   console.log("✅ MyVindhu main.js fully initialized");
 });
+console.log('✅ Loaded: main.js');

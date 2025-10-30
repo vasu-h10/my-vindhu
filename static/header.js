@@ -1,7 +1,7 @@
 // header.js — fully dynamic interactive header
-import { loadProfile, attachProfileWrapper } from "./profile_wrapper.js";
-import { showDonationPanel, attachDonationPanel } from "./donationPanel.js";
-import { createDonationIcon } from "./modules/donationIcon.js";
+import { loadProfile, attachProfileWrapper } from "/static/profile_wrapper.js";
+import { showDonationPanel, attachDonationPanel } from "/static/donationPanel.js";
+import { createDonationIcon } from "/static/modules/donationIcon.js";
 
 export function renderHeader() {
   const layout = document.getElementById("layoutContainer") || document.body;
@@ -116,3 +116,4 @@ export function renderHeader() {
     if (donationPanel) donationPanel.remove();
   });
 }
+console.log('✅ Loaded: header.js');

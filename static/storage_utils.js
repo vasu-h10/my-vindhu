@@ -23,3 +23,4 @@ export function removeData(key) {
     console.error(`❌ Remove failed for key "${key}"`, err);
   }
 }
+console.log('✅ Loaded: storage_utils.js');

@@ -1,7 +1,7 @@
-import { APP_STATE } from './state.js';
-import { APP_CONSTANTS } from './constants.js';
-import { saveData, loadData } from './js/modules/storage.js';
-import { fadeIn } from './js/modules/animations.js';
+import { APP_STATE } from '/static/state.js';
+import { APP_CONSTANTS } from '/static/constants.js';
+import { saveData, loadData } from '/static/js/modules/storage.js';
+import { fadeIn } from '/static/js/modules/animations.js';
 
 // Enable dark/light mode toggle
 export function enableDarkModeToggle() {
@@ -21,3 +21,4 @@ export function enableDarkModeToggle() {
     document.body.dataset.theme = savedTheme;
   }
 }
+console.log('✅ Loaded: main_body.js');

@@ -1,5 +1,5 @@
-import { renderMainBody } from "./main_body.js";
-import { saveToStorage, getFromStorage, clearStorage } from "./storage.js";
+import { renderMainBody } from "/static/main_body.js";
+import { saveToStorage, getFromStorage, clearStorage } from "/static/storage.js";
 
 export function loadProfile() {
   const main = document.getElementById("app-body");
@@ -92,3 +92,4 @@ export function loadProfile() {
 
 // Enable global access from header button
 window.loadProfile = loadProfile;
+console.log('✅ Loaded: profile_wrapper.js');

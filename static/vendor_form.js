@@ -11,3 +11,4 @@ export function showVendorForm() {
     </section>
   `;
 }
+console.log('✅ Loaded: vendor_form.js');
