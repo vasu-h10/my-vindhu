@@ -1,0 +1,19 @@
+{
+  "name": "my-vindhu",
+  "version": "1.0.0",
+  "description": "Mobile-first platform for discovering culturally rooted dishes from local vendors. Scroll-safe onboarding, modular UI, and image-rich design logic.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "path": "^0.12.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasu-h10/my-vindhu.git"
+  },
+  "license": "ISC"
+}
