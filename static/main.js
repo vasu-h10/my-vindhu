@@ -5,16 +5,16 @@ console.log("✅ Current base:", document.baseURI);
 
 // main.js – single entry point for MyVindhu
 
-import { renderHeader } from "./modules/header.js";
-import { renderFooter } from "./modules/footer.js";
-import { renderMainBody } from "./modules/main_body.js";
-import { loadProfile } from "./modules/profile_wrapper.js";
-import { showDonationPanel } from "./modules/donationPanel.js";
-import { initStorage } from "./modules/storage.js";
-import { initTheme } from "./modules/theme.js";
-import { runAnimations } from "./modules/animations.js";
-import { fetchData } from "./modules/api.js";
-import { ensureSingleResizeObserver } from "./modules/utils.js";
+import { renderHeader } from "/static/header.js";
+import { renderFooter } from "/static/footer.js";
+import { renderMainBody } from "/static/main_body.js";
+import { loadProfile } from "/static/profile_wrapper.js";
+import { showDonationPanel } from "/static/donationPanel.js";
+import { initStorage } from "/static/storage.js";
+import { initTheme } from "/static/theme.js";
+import { runAnimations } from "/static/animations.js";
+import { fetchData } from "/static/api.js";
+import { ensureSingleResizeObserver } from "/static/utils.js";
 
 // ✅ DOM Ready Entry
 document.addEventListener("DOMContentLoaded", async () => {
