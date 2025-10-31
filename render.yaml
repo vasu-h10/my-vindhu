@@ -1,10 +1,6 @@
 services:
   - type: web
     name: my-vindhu
-    env: static
+    env: python
     buildCommand: ""
-    staticPublishPath: public
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    startCommand: "python app.py"
