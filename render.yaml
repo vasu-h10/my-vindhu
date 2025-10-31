@@ -1,12 +1,10 @@
 services:
   - type: web
     name: my-vindhu
-    env: python
-    plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn backend.https_server:app
-    envVars:
-      - key: PORT
-        value: 10000
-      - key: HOST
-        value: 0.0.0.0
+    env: static
+    buildCommand: ""
+    staticPublishPath: public
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
