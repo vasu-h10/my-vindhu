@@ -1,8 +1,8 @@
 from flask import Flask, send_from_directory, jsonify
 import os
 
-# ✅ Static files are in the project root
-app = Flask(__name__, static_folder=".")
+# ✅ Tell Flask that all static files live in the "public" folder
+app = Flask(__name__, static_folder="public")
 
 @app.route('/<path:filename>')
 def serve_static(filename):
