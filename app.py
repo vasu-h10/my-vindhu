@@ -15,3 +15,7 @@ def serve_index(subpath=None):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+
+@app.route('/api/test')
+def test_api():
+    return {"status": "✅ Flask backend active!", "message": "API working fine"}
