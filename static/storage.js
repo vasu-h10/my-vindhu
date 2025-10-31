@@ -1,8 +1,1 @@
-export function saveData(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
-}
-
-export function loadData(key) {
-  return JSON.parse(localStorage.getItem(key));
-}
-console.log('✅ Loaded: storage.js');
+export * from './modules/storage.js';

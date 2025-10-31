@@ -1,2 +1,1 @@
-// placeholder animations.js
-console.log('✅ Loaded: animations.js');
+export * from './modules/animations.js';
