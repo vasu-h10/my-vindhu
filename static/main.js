@@ -10,9 +10,9 @@ import { renderFooter } from "/static/footer.js";
 import { renderMainBody } from "/static/main_body.js";
 import { loadProfile } from "/static/profile_wrapper.js";
 import { showDonationPanel } from "/static/donation_panel.js";
-import { initStorage } from "./storage.js";
+import { initStorage } from "./modules/storage.js";
 import { initTheme } from "/static/theme.js";
-import { runAnimations } from "./animations.js";
+import { runAnimations } from "./modules/animations.js";
 import { fetchData } from "/static/api.js";
 import { ensureSingleResizeObserver } from "/static/utils.js";
 
